@@ -1,0 +1,76 @@
+{
+  "game_process": {
+    "exe_name": "AstralParty_CN.exe",
+    "current_pid": 27836,
+    "note": "PID changes on every restart"
+  },
+  "gameassembly_dll": {
+    "current_base": "0x7FFEF7C50000",
+    "size": "0x4007000",
+    "note": "Base changes on every restart due to ASLR"
+  },
+  "rva_addresses": {
+    "comment": "These RVA offsets are FIXED across restarts (relative to GameAssembly.dll base)",
+    "websocket": {
+      "SendAsync": "0x2410AB0",
+      "SendPrivateAsync": "0x2410D60",
+      "SendFrameAsync": "0x2411600",
+      "SendFrameLockAcquired": "0x2411780"
+    },
+    "socket": {
+      "Socket_Send_full": "0x23F2660",
+      "Socket_Send_simple": "0x23F2500"
+    },
+    "il2cpp_exports": {
+      "comment": "Exported from GameAssembly.dll, resolved at runtime via GetProcAddress",
+      "functions": [
+        "il2cpp_domain_get",
+        "il2cpp_domain_get_assemblies",
+        "il2cpp_assembly_get_image",
+        "il2cpp_class_from_name",
+        "il2cpp_class_get_methods",
+        "il2cpp_class_get_fields",
+        "il2cpp_method_get_name",
+        "il2cpp_field_get_offset",
+        "il2cpp_thread_attach",
+        "il2cpp_string_new",
+        "il2cpp_runtime_invoke"
+      ]
+    }
+  },
+  "network_architecture": {
+    "transport": "WebSocket (ManagedWebSocket)",
+    "stack": "C2SRPC -> RPCMsgManager -> Protocal -> Frame -> EnOrDecode -> USocket -> WebSocket",
+    "c2s_rpc_count": 152,
+    "s2c_rpc_count": 229,
+    "serialization": "Google Protobuf",
+    "error_11018": "Invalid command number - caused by calling C2SRPC directly without going through RPCMsgManager"
+  },
+  "key_classes": {
+    "Core.GameManager": "Game lifecycle manager",
+    "Core.Net.RPCMsgManager": "RPC message manager singleton - handles command numbers, session IDs, callbacks",
+    "Core.Net.NetManager": "Network manager",
+    "Core.Net.Protocal": "Protocol wrapper - adds command number, encryption",
+    "Core.Net.Frame": "Frame wrapper - adds header + length",
+    "Core.Net.EnOrDecode": "Encryption/decryption",
+    "Core.Net.USocket": "Custom socket wrapper",
+    "Core.Net.ByteBuf": "Byte buffer for binary data",
+    "GameLogic.GameLogicManager": "In-match game logic (DI-managed, no static singleton)",
+    "GameLogic.ActionLogic": "Player action handler",
+    "party.protocol.*C2S": "Protobuf messages (client to server)",
+    "party.protocol.*S2C": "Protobuf messages (server to client)"
+  },
+  "game_rpc_commands": {
+    "ThrowDiceC2SRPC": "Roll dice",
+    "PlayerActionC2SRPC": "Player action (move, use card, battle choice)",
+    "SkipC2SRPC": "Skip turn/action",
+    "UseCardC2SRPC": "Use a card",
+    "BattleActionC2SRPC": "Battle action (attack/defend/evade)",
+    "BuyCardC2SRPC": "Buy card from shop",
+    "UpgradeStarC2SRPC": "Upgrade star (Norma)"
+  },
+  "sendasync_prologue": {
+    "first_14_bytes_hex": "40535556574883ec68803d10f16101",
+    "disassembly": "push rbx; push rbp; push rsi; push rdi; sub rsp,0x68; cmp byte [rip+0x16110],0"
+  }
+}

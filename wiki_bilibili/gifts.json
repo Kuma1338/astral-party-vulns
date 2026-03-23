@@ -1,0 +1,44 @@
+{
+  "_meta": {
+    "source": "wiki.biligame.com/starengine/星趴礼物",
+    "scraped_date": "2026-03-23"
+  },
+  "gift_categories": {
+    "chocolate": {
+      "green": {"name": "商业巧克力", "xp": 10},
+      "blue": {"name": "礼盒巧克力", "xp": 60},
+      "purple": {"name": "手工巧克力", "xp": 300}
+    },
+    "electronics": {
+      "green": {"name": "智能手机", "xp": 10},
+      "blue": {"name": "平板电脑", "xp": 60},
+      "purple": {"name": "高级元件", "xp": 300}
+    },
+    "model": {
+      "green": {"name": "洗澡鸭子", "xp": 10},
+      "blue": {"name": "泰迪熊", "xp": 60},
+      "purple": {"name": "怪物手办", "xp": 300}
+    },
+    "clothing": {
+      "green": {"name": "休闲服装", "xp": 10},
+      "blue": {"name": "精美礼服", "xp": 60},
+      "purple": {"name": "水手服", "xp": 300}
+    },
+    "beverage": {
+      "green": {"name": "普通饮料", "xp": 10},
+      "blue": {"name": "精酿啤酒", "xp": 60},
+      "purple": {"name": "陈年佳酿", "xp": 300}
+    }
+  },
+  "character_preferences": {
+    "帕露南": "巧克力系列",
+    "芬妮": "模型系列",
+    "小町": "服装系列",
+    "派德曼": "电子产品系列",
+    "帕帕拉": "饮料系列",
+    "美咲": ["洗澡鸭子", "精美礼服", "陈年佳酿"],
+    "娜蒂斯": ["休闲服装", "精酿啤酒", "高级元件"],
+    "凛/琉华": ["普通饮料", "平板电脑", "水手服"]
+  },
+  "notes": "偏好礼物赠送时获得双倍羁绊经验"
+}

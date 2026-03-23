@@ -1,0 +1,317 @@
+{
+  "_meta": {
+    "source": "astralparty.wiki.gg/zh/wiki/卡牌 + wiki.biligame.com/starengine",
+    "scraped_date": "2026-03-23",
+    "notes": "Card data from wiki.gg card page. Bilibili card subpages returned 567 rate-limit errors."
+  },
+  "combat_cards": [
+    {
+      "name": "攻击(中)",
+      "name_en": "Attack (M)",
+      "type": "attack",
+      "cost": 1,
+      "effect": "攻击力上升1~3"
+    },
+    {
+      "name": "攻击(大)",
+      "name_en": "Attack (L)",
+      "type": "attack",
+      "cost": 2,
+      "effect": "攻击力上升1~6"
+    },
+    {
+      "name": "攻击(特)",
+      "name_en": "Attack (G)",
+      "type": "attack",
+      "cost": 3,
+      "effect": "攻击力上升1~10"
+    },
+    {
+      "name": "防御(中)",
+      "name_en": "Defense (M)",
+      "type": "defense",
+      "cost": 1,
+      "effect": "防御力上升1~3"
+    },
+    {
+      "name": "防御(大)",
+      "name_en": "Defense (L)",
+      "type": "defense",
+      "cost": 2,
+      "effect": "防御力上升1~6"
+    },
+    {
+      "name": "防御(特)",
+      "name_en": "Defense (G)",
+      "type": "defense",
+      "cost": 3,
+      "effect": "防御力上升1~10"
+    },
+    {
+      "name": "传奇大剑·嘎呜斩",
+      "name_en": "Legendary Sword: Gawu Cut",
+      "type": "attack",
+      "cost": 4,
+      "effect": "攻击力上升1~20",
+      "tags": ["PvE"]
+    }
+  ],
+  "effect_cards_self": [
+    {
+      "name": "巧克力蛋糕",
+      "name_en": "Chocolate Cake",
+      "type": "effect_self",
+      "effect": "回复2HP"
+    },
+    {
+      "name": "汉堡",
+      "name_en": "Hamburger",
+      "type": "effect_self",
+      "effect": "回复4HP"
+    },
+    {
+      "name": "以毒攻毒",
+      "name_en": "Fight Fire with Fire",
+      "type": "effect_self",
+      "effect": "立即失去2HP；之后2回合每回合恢复3HP"
+    },
+    {
+      "name": "孤注一掷",
+      "name_en": "All or Nothing",
+      "type": "effect_self",
+      "effect": "攻击力+5；对手无法闪避下次战斗；失败则自身倒下"
+    },
+    {
+      "name": "改变方向",
+      "name_en": "Redirection",
+      "type": "effect_self",
+      "effect": "自由选择移动方向"
+    },
+    {
+      "name": "遥控骰子",
+      "name_en": "Smart Dice",
+      "type": "effect_self",
+      "effect": "下次移动点可选择1-6内任意数字"
+    },
+    {
+      "name": "随机传送",
+      "name_en": "Random Portal",
+      "type": "effect_self",
+      "effect": "随机传送到传送面板"
+    },
+    {
+      "name": "王之力",
+      "name_en": "King's Power",
+      "type": "effect_self",
+      "effect": "受到4点伤害；攻击力+5，持续3回合",
+      "tags": ["PvE"]
+    },
+    {
+      "name": "不动如山",
+      "name_en": "Immovable",
+      "type": "effect_self",
+      "effect": "防御力+6，持续2回合",
+      "tags": ["PvE"]
+    }
+  ],
+  "effect_cards_target": [
+    {
+      "name": "过期便当",
+      "name_en": "Expired Bento",
+      "type": "effect_target",
+      "range": 6,
+      "effect": "每回合造成2点伤害，结束后在角色脚下放置掉落物"
+    },
+    {
+      "name": "弹弓",
+      "name_en": "Slingshot",
+      "type": "effect_target",
+      "range": 10,
+      "effect": "造成2点伤害"
+    },
+    {
+      "name": "激光笔",
+      "name_en": "Laser Beam",
+      "type": "effect_target",
+      "range": 6,
+      "effect": "造成3点伤害"
+    },
+    {
+      "name": "板砖",
+      "name_en": "Brick",
+      "type": "effect_target",
+      "range": 3,
+      "effect": "造成5点伤害"
+    },
+    {
+      "name": "狂暴",
+      "name_en": "Berserk",
+      "type": "effect_target",
+      "range": 10,
+      "effect": "攻击力+3，受到伤害+1，持续2回合"
+    },
+    {
+      "name": "偷窃",
+      "name_en": "Snatch",
+      "type": "effect_target",
+      "effect": "偷取敌人5星币"
+    },
+    {
+      "name": "灵魂链接",
+      "name_en": "Soul Link",
+      "type": "effect_target",
+      "effect": "当其中一个角色受到伤害时另一个角色承受同等伤害。持续3回合"
+    },
+    {
+      "name": "定时炸弹",
+      "name_en": "Time Bomb",
+      "type": "effect_target",
+      "effect": "放置炸弹；骰1则99伤害；骰2-6传给下一人"
+    },
+    {
+      "name": "是他干的",
+      "name_en": "Blame Card",
+      "type": "effect_target",
+      "effect": "选择其他一名角色，造成2点伤害并施加问题学生debuff，获得3星币。持有者回合结束受2点伤害"
+    },
+    {
+      "name": "你有我有",
+      "name_en": "What You Have I Have",
+      "type": "effect_target",
+      "effect": "双方各获得1张卡牌",
+      "tags": ["PvE"]
+    },
+    {
+      "name": "加急加快",
+      "name_en": "Hurry Hurry",
+      "type": "effect_target",
+      "effect": "下次移动投2个骰子",
+      "tags": ["PvE"]
+    },
+    {
+      "name": "豪华宴席",
+      "name_en": "Luxurious Feast",
+      "type": "effect_target",
+      "range": 3,
+      "effect": "治愈3格内所有玩家3HP",
+      "tags": ["PvE"]
+    },
+    {
+      "name": "电磁炮",
+      "name_en": "Railgun",
+      "type": "effect_target",
+      "range": 5,
+      "effect": "对怪物造成6点伤害",
+      "tags": ["PvE"]
+    },
+    {
+      "name": "打怪激光笔",
+      "name_en": "Anti-Monster Laser",
+      "type": "effect_target",
+      "range": 6,
+      "effect": "造成3点伤害",
+      "tags": ["PvE"]
+    },
+    {
+      "name": "打怪板砖",
+      "name_en": "Anti-Monster Brick",
+      "type": "effect_target",
+      "range": 3,
+      "effect": "造成5点伤害",
+      "tags": ["PvE"]
+    }
+  ],
+  "effect_cards_land": [
+    {
+      "name": "仙人跳",
+      "name_en": "Entrapment",
+      "type": "effect_land",
+      "range": 3,
+      "effect": "踩上的角色支付放置者5星币"
+    },
+    {
+      "name": "爆破",
+      "name_en": "Demolition",
+      "type": "effect_land",
+      "range": 3,
+      "effect": "踩上的角色受到3点伤害"
+    },
+    {
+      "name": "捡漏",
+      "name_en": "Scavenging",
+      "type": "effect_land",
+      "range": 3,
+      "effect": "吸收3格内地面上的星币"
+    },
+    {
+      "name": "路障",
+      "name_en": "Barricade",
+      "type": "effect_land",
+      "range": 10,
+      "effect": "经过的玩家停止移动"
+    }
+  ],
+  "counter_cards": [
+    {
+      "name": "以牙还牙",
+      "name_en": "Eye for an Eye",
+      "type": "counter",
+      "effect": "将效果牌反弹给使用者"
+    },
+    {
+      "name": "随机选择",
+      "name_en": "Random Select",
+      "type": "counter",
+      "effect": "将效果重定向到随机敌人"
+    },
+    {
+      "name": "结界",
+      "name_en": "Barrier",
+      "type": "counter",
+      "effect": "无效化效果牌"
+    }
+  ],
+  "mark_related_cards": [
+    {
+      "name": "鹰眼瞄具",
+      "name_en": "Eagle Eye Scope",
+      "type": "effect_target",
+      "effect": "施加标记相关效果"
+    },
+    {
+      "name": "忍术飞镖",
+      "name_en": "Ninja Shuriken",
+      "type": "effect_target",
+      "effect": "施加标记相关效果"
+    },
+    {
+      "name": "标靶",
+      "name_en": "Target",
+      "type": "effect_target",
+      "effect": "施加标记相关效果"
+    },
+    {
+      "name": "魔法箭袋",
+      "name_en": "Magic Arrow Quiver",
+      "type": "effect_target",
+      "effect": "施加标记相关效果"
+    },
+    {
+      "name": "手持风扇-大",
+      "name_en": "Hand Fan Large",
+      "type": "effect_target",
+      "effect": "施加标记相关效果"
+    },
+    {
+      "name": "手持风扇-小",
+      "name_en": "Hand Fan Small",
+      "type": "effect_target",
+      "effect": "施加标记相关效果"
+    }
+  ],
+  "mark_system": {
+    "name": "标记",
+    "name_en": "Mark",
+    "effect": "被标记目标受到伤害+1，回合结束时层数减1"
+  }
+}

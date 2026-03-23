@@ -1,0 +1,127 @@
+{
+  "_meta": {
+    "source": "wiki.biligame.com/starengine/筹码",
+    "scraped_date": "2026-03-23",
+    "total_chips": 151,
+    "last_updated": "2026-02-27"
+  },
+  "chip_categories": {
+    "basic": {
+      "name": "基础系",
+      "chips": [
+        {"name": "拳击手套-普通", "effect": "攻击力+1", "rarity": "blue"},
+        {"name": "拳击手套-中级", "effect": "攻击力+2", "rarity": "purple"},
+        {"name": "拳击手套-高级", "effect": "攻击力+5", "rarity": "gold"},
+        {"name": "摩托头盔-普通", "effect": "防御力+1", "rarity": "blue"},
+        {"name": "摩托头盔-中级", "effect": "防御力+2", "rarity": "purple"},
+        {"name": "摩托头盔-高级", "effect": "防御力+3", "rarity": "gold"},
+        {"name": "夹心饼干-普通", "effect": "最大生命值+2", "rarity": "blue"},
+        {"name": "夹心饼干-美味", "effect": "最大生命值+3", "rarity": "purple"},
+        {"name": "夹心饼干-可口", "effect": "最大生命值+5；HP<50%时获得1层反击", "rarity": "gold"},
+        {"name": "速度轮滑鞋-普通", "effect": "移动速度+1", "rarity": "blue"},
+        {"name": "速度轮滑鞋-中级", "effect": "移动速度+2", "rarity": "purple"},
+        {"name": "速度轮滑鞋-高级", "effect": "移动速度+4", "rarity": "gold"}
+      ]
+    },
+    "starlight": {
+      "name": "星光系",
+      "chips": [
+        {"name": "银行卡-余额不足", "effect": "获得4层星光", "rarity": "blue"},
+        {"name": "银行卡-余额充足", "effect": "获得7层星光", "rarity": "purple"},
+        {"name": "银行卡-无限", "effect": "获得3层星光；所有角色轮次奖励+3星币", "rarity": "gold"},
+        {"name": "八面骰子", "effect": "掷出8时+8星币；每累计8步移动+1星光", "rarity": "blue"},
+        {"name": "ATM机", "effect": "转账时双方+1星光", "rarity": "blue"},
+        {"name": "手电筒-强光", "effect": "击中怪物时获得1星光", "rarity": "purple"},
+        {"name": "手电筒-闪爆", "effect": "攻击怪物时获得1星币；每3层星光+1攻击力", "rarity": "gold"},
+        {"name": "星币锤", "effect": "获得5层星光；>10层时花费6星币获得+30%星币基础攻击力", "rarity": "gold"}
+      ]
+    },
+    "healing": {
+      "name": "治愈系",
+      "chips": [
+        {"name": "缓冲盾", "effect": "被攻击时获得2层治愈与3星币", "rarity": "blue"},
+        {"name": "甜甜糖果", "effect": "出牌时+1治愈；满血消耗4层+1出牌数", "rarity": "purple"},
+        {"name": "维生素药片", "effect": "每获得一张卡牌获得1层治愈", "rarity": "purple"},
+        {"name": "友谊徽章", "effect": "转账或治疗友方时，双方+2治愈层", "rarity": "purple"},
+        {"name": "大锅炖", "effect": "回合结束时4格内角色+1治愈层并恢复1HP", "rarity": "gold"},
+        {"name": "医疗箱-急救", "effect": "回合开始时获得1层治愈", "rarity": "blue"},
+        {"name": "医疗箱-完整", "effect": "回合开始时获得3层治愈", "rarity": "gold"},
+        {"name": "美工刀-普通", "effect": "满血时+2ATK；攻击时获得治愈层数额外攻击力", "rarity": "purple"},
+        {"name": "美工刀-锋利", "effect": "满血时+4ATK；攻击时获得治愈层数额外攻击力", "rarity": "gold"}
+      ]
+    },
+    "mark": {
+      "name": "标记系",
+      "chips": [
+        {"name": "标记喷雾", "effect": "使用效果牌后对目标施加1层标记", "rarity": "blue"},
+        {"name": "魔法箭袋", "effect": "每回合一次，对标记怪物使用效果牌时+1标记并返回手牌", "rarity": "purple"},
+        {"name": "忍术飞镖", "effect": "出牌数+1；标记目标受到等于标记层数的额外伤害", "rarity": "gold"},
+        {"name": "手持风扇-小", "effect": "使用主动技能后6格范围怪物+1标记", "rarity": "blue"},
+        {"name": "手持风扇-大", "effect": "抽卡+1；主动技能后6格范围怪物+1标记", "rarity": "purple"},
+        {"name": "标靶", "effect": "攻击力+1；回合开始随机标记4格内1个怪物1层", "rarity": "blue"},
+        {"name": "标准瞄具", "effect": "攻击力+2；攻击时施加1层标记", "rarity": "purple"},
+        {"name": "鹰眼瞄具", "effect": "先施加1层标记，本次攻击+2倍标记层数攻击力", "rarity": "gold"}
+      ]
+    },
+    "other": {
+      "name": "其他",
+      "chips": [
+        {"name": "存钱罐", "effect": "每使用2张效果牌获得3星币", "rarity": "blue"},
+        {"name": "大背包", "effect": "出牌数+1", "rarity": "purple"},
+        {"name": "备用电池", "effect": "主动技能冷却缩减1", "rarity": "purple"},
+        {"name": "魔法典籍", "effect": "每使用3张效果牌复制最后使用的效果牌", "rarity": "purple"},
+        {"name": "智能手表", "effect": "手牌<5张时回合结束获得1张卡牌", "rarity": "purple"},
+        {"name": "会员信", "effect": "轮次奖励卡牌+1", "rarity": "blue"},
+        {"name": "优雅羽毛", "effect": "闪避成功时+1ATK，最多3层", "rarity": "blue"},
+        {"name": "天空卫星", "effect": "效果牌射程+3；手牌<6张时获得电磁炮", "rarity": "gold"},
+        {"name": "肾上腺素-普通", "effect": "HP<50%时+3ATK；无法被反击", "rarity": "purple"},
+        {"name": "肾上腺素-高效", "effect": "HP<50%时+8ATK；无法被反击", "rarity": "gold"}
+      ]
+    },
+    "map_exclusive": {
+      "dream_ship": {
+        "name": "星趴·梦想号专属",
+        "chips": [
+          {"name": "铁锚", "effect": "被伤害时+1ATK；回合开始失去1ATK加成", "rarity": "blue"},
+          {"name": "三叉戟", "effect": "技能使未强化友方+1ATK/DEF", "rarity": "purple"},
+          {"name": "梦想模型", "effect": "移动速度+2；每15步移动技能CD-1", "rarity": "gold"}
+        ]
+      },
+      "spirit_festival": {
+        "name": "御魂庆典专属",
+        "chips": [
+          {"name": "诅咒剑", "effect": "永受青之诅咒；每击倒怪物+1ATK永久", "rarity": "blue"},
+          {"name": "复仇戟", "effect": "青诅咒+5ATK；赤毒+5DEF", "rarity": "purple"},
+          {"name": "穿甲炮", "effect": "效果牌额外+目标防御力伤害", "rarity": "gold"}
+        ]
+      },
+      "magic_academy": {
+        "name": "魔法学院专属",
+        "chips": [
+          {"name": "泽提亚蛋糕", "effect": "攻击力+1；茶壶攻击时+1ATK/DEF持续1回合", "rarity": "blue"},
+          {"name": "古代法杖", "effect": "效果射程+3；出牌数+1", "rarity": "purple"},
+          {"name": "精英剑盾", "effect": "攻击力+4；问题学生状态时防御力+4", "rarity": "gold"}
+        ]
+      },
+      "dragon_palace": {
+        "name": "龙宫游乐园专属",
+        "chips": [
+          {"name": "波浪护符", "effect": "效果牌受1伤；获得卡牌回复1HP", "rarity": "blue"},
+          {"name": "神秘海鲜汤", "effect": "战斗骰只为1或6点", "rarity": "blue"},
+          {"name": "蛇偶", "effect": "受伤时伤害-2、攻击+2，持续1回合", "rarity": "purple"},
+          {"name": "鲤鱼偶", "effect": "技能后获得反击；反击时+1ATK/DEF永久", "rarity": "purple"},
+          {"name": "无限蛇", "effect": "回合开始抽卡至8张；出牌数+1", "rarity": "gold"},
+          {"name": "交叉鲤鱼", "effect": "攻击骰只为6；无法被反击", "rarity": "gold"}
+        ]
+      },
+      "dark_alley": {
+        "name": "幽魂暗巷专属",
+        "chips": [
+          {"name": "计时器", "effect": "获得改造时额外+1层；每2层改造+1ATK", "rarity": "blue"},
+          {"name": "重生娃娃", "effect": "被击倒后进度不变；+1ATK/DEF/MaxHP", "rarity": "purple"},
+          {"name": "糖果VIP卡", "effect": "糖果机3星币；糖果卡-1技能CD", "rarity": "gold"}
+        ]
+      }
+    }
+  }
+}

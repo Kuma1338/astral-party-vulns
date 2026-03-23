@@ -1,0 +1,138 @@
+{
+  "_meta": {
+    "source": "astralparty.wiki.gg/zh/wiki/机制 + wiki.biligame.com/starengine",
+    "scraped_date": "2026-03-23"
+  },
+  "combat_system": {
+    "overview": "战斗基于骰子+属性+卡牌的系统",
+    "attack_formula": {
+      "description": "最终伤害 = max(1, 攻击方最终攻击值 - 防御方最终防御值)",
+      "minimum_damage": 1,
+      "components": {
+        "initial_dice": "随机1-6点（决定攻击成功可能性）",
+        "bonus_dice": "基于角色基础攻击力+卡牌加成的随机投掷",
+        "final_value": "初始骰子 + 加成骰子之和"
+      }
+    },
+    "defense_formula": {
+      "description": "受到的最终伤害 = max(1, 对手攻击最终值 - 你的防御最终值)",
+      "minimum_damage": 1
+    },
+    "evasion_system": {
+      "description": "闪避基于初始骰子比较",
+      "requirement": "对手未使用【孤注一掷】卡",
+      "evasion_table": {
+        "opponent_dice_1": "需要2+才能闪避",
+        "opponent_dice_2": "需要3+才能闪避",
+        "opponent_dice_3": "需要4+才能闪避",
+        "opponent_dice_4": "需要5+才能闪避",
+        "opponent_dice_5": "需要6才能闪避",
+        "opponent_dice_6": "需要6才能闪避"
+      },
+      "success_result": "零伤害，完全回避攻击",
+      "failure_result": "防御最终值设为0，承受全额攻击伤害"
+    },
+    "attack_triggers": [
+      "踩到对手所在格",
+      "在提示菜单中选择攻击",
+      "移动继续时可战斗多个对手",
+      "不能通过突袭面板对同一格同一对手攻击两次"
+    ]
+  },
+  "card_system": {
+    "card_types": {
+      "combat_cards": {
+        "attack_cards": "红色背景，提升攻击骰子点数",
+        "defense_cards": "浅蓝色背景，提升防御骰子点数"
+      },
+      "effect_cards": {
+        "self_targeting": "对自身使用",
+        "target_opponent": "对对手使用",
+        "tile_targeting": "放置在地块上"
+      },
+      "counter_cards": "抵消效果牌"
+    },
+    "usage_rules": {
+      "effect_cards_per_turn": 1,
+      "exception": "小町主动技能可增加出牌数",
+      "combat_card_cost_limit": 3,
+      "cost_display": "左上角菱形图标"
+    },
+    "card_acquisition": [
+      "每3回合从回合开始奖励获得",
+      "卡牌格子",
+      "商店购买"
+    ]
+  },
+  "star_coin_system": {
+    "round_distribution_after_15": {
+      "1st_place": 10,
+      "2nd_place": 9,
+      "3rd_place": 8,
+      "4th_place": 7,
+      "note": "15回合后从10/10/10/10调整为7/8/9/10"
+    }
+  },
+  "status_effects": {
+    "mark": {
+      "name": "标记",
+      "effect": "被标记目标受到伤害+1，回合结束时层数减1"
+    },
+    "healing": {
+      "name": "治愈",
+      "effect": "回合结束时恢复HP"
+    },
+    "problem_student": {
+      "name": "问题学生",
+      "effect": "debuff效果"
+    },
+    "fan": {
+      "name": "粉丝",
+      "effect": "超天酱专属状态，拥有粉丝状态的角色攻击超天酱时伤害降低"
+    },
+    "sword_intent": {
+      "name": "剑气",
+      "effect": "美咲专属，1-2层每层+1ATK，3层+3ATK"
+    },
+    "love": {
+      "name": "Love",
+      "effect": "主播女孩专属，每层提供攻击力但降低防御力"
+    }
+  },
+  "game_modes": {
+    "standard_pvp": {
+      "players": "2-4人",
+      "bot_support": true,
+      "win_condition": "收集最多星星",
+      "star_collection": "在起点/安全点用星币兑换星星"
+    },
+    "cooperative_pve": {
+      "players": "2-4人（最少2人）",
+      "bot_support": true,
+      "win_condition": "击败Boss",
+      "time_limit": "进度条系统，被击倒加速进度",
+      "chip_system": true,
+      "difficulty_levels": ["普通", "噩梦", "疯狂", "极限"],
+      "coop_level_cap": 6,
+      "weekly_chip_currency_cap": 1000
+    },
+    "intense_battle": {
+      "description": "激战模式：更多手牌上限，更多出牌数，更多费用点数，更短技能冷却"
+    },
+    "single_player": {
+      "description": "单人模式，3个BOT队友，无奖励"
+    },
+    "gift_plaza_3v1": {
+      "description": "礼物广场特殊3v1不对称PVP模式"
+    }
+  },
+  "spectator_system": {
+    "description": "观战系统，使用观察码",
+    "features": ["在线聊天", "邀请", "黑名单"]
+  },
+  "movement_system": {
+    "base": "投掷1个六面骰子决定移动步数",
+    "direction_choice": "在分叉路口选择方向",
+    "speed_modifier": "部分角色/技能/筹码可修改移动速度"
+  }
+}

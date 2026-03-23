@@ -1,0 +1,48 @@
+{
+  "_meta": {
+    "source": "astralparty.wiki.gg/zh/wiki/合作挑战 + wiki.biligame.com/starengine",
+    "scraped_date": "2026-03-23"
+  },
+  "overview": {
+    "description": "合作挑战是星引擎Party的特殊模式。玩家需要齐心协力保证生存、获取星币，打败首领以赢得最终的胜利。",
+    "min_players": 2,
+    "max_players": 4,
+    "bot_support": true,
+    "difficulty_levels": ["普通", "噩梦", "疯狂", "极限"],
+    "coop_level_cap": 6,
+    "weekly_chip_currency_cap": 1000
+  },
+  "mechanics": {
+    "time_progress_bar": {
+      "description": "倒计时进度条随回合推进。被击倒时加速推进。进度条到头则游戏失败。",
+      "normal_progression": "+1/回合",
+      "accelerated_progression": "+2/被击倒时"
+    },
+    "map_events": {
+      "description": "在特定进度阈值触发事件，使敌人更强但同时发布任务提供玩家增强或敌人削弱"
+    },
+    "task_system": {
+      "description": "完成指定任务获得有利buff"
+    },
+    "coin_transfer": {
+      "description": "持有5+星币的玩家可在商店地块向站立队友转移恰好5星币"
+    },
+    "star_collection": {
+      "description": "在安全点/起点用星币获取星星，获得永久+1攻击力和筹码选择机会"
+    },
+    "enhancement_chips": {
+      "description": "获得星星后或完成特定任务后选择筹码，从3个随机选项中选1个",
+      "total_chips": 151,
+      "rarity_tiers": ["blue", "purple", "gold"]
+    }
+  },
+  "maps": [
+    "园林中庭",
+    "幽魂暗巷",
+    "龙宫游乐园",
+    "魔法学院",
+    "水乡古镇",
+    "御魂庆典",
+    "星趴·梦想号"
+  ]
+}

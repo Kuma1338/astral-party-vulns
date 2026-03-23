@@ -1,0 +1,134 @@
+{
+  "_meta": {
+    "source": "wiki.biligame.com/starengine + astralparty.wiki.gg",
+    "scraped_date": "2026-03-23"
+  },
+  "pvp_maps": [
+    {
+      "name": "游乐园",
+      "name_en": "Amusement Park",
+      "type": "PVP",
+      "description": "运用自己的计谋，以及亿点点运气的来取得胜利吧！",
+      "features": "策略与运气并重"
+    },
+    {
+      "name": "樱花小镇",
+      "name_en": "Cherry Blossom Town",
+      "type": "PVP",
+      "description": "团子千奇百怪，内圈战火连天。",
+      "features": "多样化团子；激烈的中心战斗"
+    },
+    {
+      "name": "十字路口站",
+      "name_en": "Crossroads Station",
+      "type": "PVP",
+      "description": "请注意来往车辆！",
+      "features": "移动障碍物/危险"
+    },
+    {
+      "name": "魅影都市",
+      "name_en": "Phantom City",
+      "type": "PVP",
+      "description": "小偷出没，请看好你的钱袋子！",
+      "features": "偷窃机制；资源保护。小浣熊偷取星币"
+    },
+    {
+      "name": "礼物广场",
+      "name_en": "Gift Plaza",
+      "type": "PVP",
+      "description": "不对称3v1 PVP模式（抓捕/运送目标）",
+      "features": "特殊3v1不对称PVP玩法"
+    },
+    {
+      "name": "丛林冒险",
+      "name_en": "Jungle Adventure",
+      "type": "PVP",
+      "description": "高回报伴随着高风险！小心断桥！",
+      "features": "地图路线会发生改变；玩家可通过特定地块控制桥梁沉入水中。高风险高回报"
+    }
+  ],
+  "pve_maps": [
+    {
+      "name": "园林中庭",
+      "name_en": "Garden Courtyard",
+      "type": "PVE",
+      "description": "隆兴饭店的中庭，连廊和拱桥组成了一个精致的庭院。",
+      "features": "饭店场景；建筑元素"
+    },
+    {
+      "name": "幽魂暗巷",
+      "name_en": "Ghost Alley",
+      "type": "PVE",
+      "description": "后街的巷子里正在举办一场疯狂的演唱会，与会者竟然...？",
+      "features": "演唱会场景；神秘实体。新增专属卡牌：支援口香糖、能量补充棒、大聪明软糖"
+    },
+    {
+      "name": "龙宫游乐园",
+      "name_en": "Dragon Palace",
+      "type": "PVE",
+      "description": "龙宫里有什么神奇的宝贝呢！？",
+      "features": "宝藏/收集品；龙主题"
+    },
+    {
+      "name": "魔法学院",
+      "name_en": "Magic Academy",
+      "type": "PVE",
+      "description": "古老的魔法学院发生了冲突！但地点竟是学院食堂？",
+      "features": "双阶段机制；击败守卫推进。存活怪物延续到下一阶段"
+    },
+    {
+      "name": "水乡古镇",
+      "name_en": "Water Town",
+      "type": "PVE",
+      "description": "爆竹可是驱邪的好东西！",
+      "features": "爆竹机制；驱邪主题"
+    },
+    {
+      "name": "御魂庆典",
+      "name_en": "Spirit Festival",
+      "type": "PVE",
+      "description": "擒鬼先擒王！",
+      "features": "鬼魂/灵魂敌人；Boss战为主"
+    },
+    {
+      "name": "星趴·梦想号",
+      "name_en": "Dream Ship",
+      "type": "PVE",
+      "description": "击败海盗王嘎呜，保护梦想号！",
+      "features": "Boss：海盗王；飞船防御战"
+    }
+  ],
+  "single_player": [
+    {
+      "name": "吉星小镇",
+      "name_en": "Lucky Star Town",
+      "type": "tutorial",
+      "description": "教程/练习地点，3个BOT队友，无奖励"
+    }
+  ],
+  "tile_types": {
+    "standard_mode": [
+      {"name": "卡牌奖励", "effect": "获得2张卡牌"},
+      {"name": "飞来横财", "effect": "获得随机数量星币(2/3/4/5/10)"},
+      {"name": "个人命运", "effect": "触发随机角色事件，可好可坏"},
+      {"name": "全员事件", "effect": "系统随机触发全员事件"},
+      {"name": "占卜", "effect": "玩家选择效果，系统决定目标"},
+      {"name": "大炮", "effect": "指定一名敌对角色，造成2点伤害"},
+      {"name": "猜猜猜", "effect": "押注后猜奇偶数，平分赢得的星币"},
+      {"name": "飞来横祸", "effect": "造成2点伤害；被击倒掉落一半星币"},
+      {"name": "加速面板", "effect": "可以投点再次进行移动"},
+      {"name": "医院", "effect": "恢复2HP；免疫一切伤害"},
+      {"name": "彩票", "effect": "自选1-12不重复数字；每5回合开奖；最低投注10星币"},
+      {"name": "传送门", "effect": "随机传送到其他传送门"},
+      {"name": "商店", "effect": "路过或踩到可购买卡牌（3星币/张），踩到免费获得1张"},
+      {"name": "突袭门", "effect": "可选择是否对敌对玩家进行突击战斗"},
+      {"name": "起点/安全点", "effect": "恢复2HP；星币足够时自动收集星星"}
+    ],
+    "cooperative_mode": [
+      {"name": "怪物突袭", "effect": "传送后可选择战斗怪物"},
+      {"name": "怪物刷新", "effect": "刷新一只怪物，可选择PvE战斗"},
+      {"name": "恢复", "effect": "恢复2HP"},
+      {"name": "星币转移", "effect": "转移星币给队友"}
+    ]
+  }
+}

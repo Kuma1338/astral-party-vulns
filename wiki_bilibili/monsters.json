@@ -1,0 +1,41 @@
+{
+  "_meta": {
+    "source": "wiki.biligame.com/starengine/星趴怪物图鉴",
+    "scraped_date": "2026-03-23",
+    "notes": "Monster catalog page only provides basic info. Detailed stats require individual pages (many returned 567 errors)."
+  },
+  "monsters": [
+    {
+      "name": "小浣熊",
+      "name_en": "Raccoon",
+      "location": ["魅影都市"],
+      "reward_coins": "5 + 偷取金额",
+      "special": "偷取玩家星币"
+    },
+    {
+      "name": "海盗鲨鱼",
+      "name_en": "Pirate Shark",
+      "location": ["星趴·梦想号", "龙宫游乐园"],
+      "reward_coins": 6
+    },
+    {
+      "name": "冰冷蓝灵",
+      "name_en": "Frozen Blue Spirit",
+      "location": ["御魂庆典"],
+      "reward_coins": 6
+    },
+    {
+      "name": "狂躁红灵",
+      "name_en": "Manic Red Spirit",
+      "location": ["御魂庆典"],
+      "reward_coins": 8
+    },
+    {
+      "name": "刀剑灵体",
+      "name_en": "Sword Spirit",
+      "location": ["御魂庆典"],
+      "reward_coins": 12
+    }
+  ],
+  "notes": "Wiki lists 50+ monsters total but detailed HP/ATK/DEF stats and abilities are on individual pages which were rate-limited."
+}

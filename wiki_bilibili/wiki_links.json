@@ -1,0 +1,82 @@
+{
+  "_meta": {
+    "source": "Multiple wikis",
+    "scraped_date": "2026-03-23",
+    "description": "Index of all known wiki pages for future scraping"
+  },
+  "wiki_sources": {
+    "bilibili_wiki": {
+      "base_url": "https://wiki.biligame.com/starengine",
+      "pages": {
+        "homepage": "/首页",
+        "characters": "/星趴角色图鉴",
+        "cards": "/星趴卡牌图鉴",
+        "cards_hand": "/星趴卡牌图鉴/手牌",
+        "cards_events": "/星趴卡牌图鉴/事件",
+        "cards_tiles": "/星趴卡牌图鉴/地块",
+        "maps": "/星趴地图图鉴",
+        "monsters": "/星趴怪物图鉴",
+        "chips": "/筹码",
+        "gifts": "/星趴礼物",
+        "items": "/星趴道具",
+        "achievements": "/星趴成就",
+        "activities": "/星趴活动图鉴",
+        "announcements": "/「星引擎_Party」游戏内公告",
+        "steam_changelog": "/Steam「星引擎_Party」游戏日志",
+        "game_changelog": "/《星引擎》游戏日志",
+        "battle_pass": "/通行证"
+      },
+      "character_pages": {
+        "帕露南": "/帕露南",
+        "芬妮": "/芬妮",
+        "阿兰娜": "/阿兰娜",
+        "小町": "/小町",
+        "派德曼": "/派德曼",
+        "帕帕拉": "/帕帕拉",
+        "恋": "/恋",
+        "米米": "/米米",
+        "Z3000": "/Z3000",
+        "潘大猛": "/潘大猛",
+        "璐璐": "/璐璐",
+        "枫": "/枫",
+        "蓝海晴": "/蓝海晴",
+        "姬梦朝": "/姬梦朝",
+        "星魅琉华": "/星魅琉华",
+        "娜蒂斯": "/娜蒂斯",
+        "茉莉": "/茉莉",
+        "梅加斯": "/梅加斯",
+        "南希露": "/南希露",
+        "龙崎美咲": "/龙崎美咲"
+      },
+      "notes": "Rate limited (HTTP 567) after ~4-6 requests. Need delays or browser-based scraping."
+    },
+    "wiki_gg": {
+      "base_url": "https://astralparty.wiki.gg/zh/wiki",
+      "pages": {
+        "homepage": "/Astral_Party_Wiki",
+        "characters": "/角色",
+        "cards": "/卡牌",
+        "maps": "/地图",
+        "mechanics": "/机制",
+        "coop_challenge": "/合作挑战",
+        "items": "/物品",
+        "achievements": "/成就",
+        "music": "/音乐",
+        "announcements": "/公告",
+        "events": "/活动"
+      },
+      "character_pages": [
+        "/米米", "/帕露南", "/芬妮", "/阿兰娜", "/小町",
+        "/派德曼", "/帕帕拉", "/恋", "/Z3000", "/潘大猛",
+        "/璐璐", "/枫", "/蓝海晴", "/龙崎美咲", "/娜蒂斯",
+        "/茉莉", "/琉华", "/南希露", "/梅加斯", "/姬梦朝",
+        "/超绝最可爱天使酱", "/主播女孩"
+      ],
+      "notes": "More reliable than bilibili wiki, good for character detail pages"
+    },
+    "fandom_wiki": {
+      "base_url": "https://starparty.fandom.com/zh/wiki",
+      "notes": "Returns 403 errors, may require browser access"
+    }
+  }
+}

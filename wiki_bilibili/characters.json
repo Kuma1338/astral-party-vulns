@@ -1,0 +1,583 @@
+{
+  "_meta": {
+    "source": "wiki.biligame.com/starengine + astralparty.wiki.gg",
+    "scraped_date": "2026-03-23",
+    "total_characters": 22,
+    "notes": "Combined data from Bilibili Wiki and wiki.gg. Some characters had 567 rate-limit errors on bilibili."
+  },
+  "characters": [
+    {
+      "id": 101,
+      "name": "帕露南",
+      "name_en": "Parunan",
+      "name_jp": "パルナン",
+      "full_name": "帕露南·克里西亚",
+      "title": "商业之主",
+      "title_en": "Master of Commerce",
+      "birthday": "6月14日",
+      "hp": 10,
+      "atk": 1,
+      "def": 2,
+      "active_skill": {
+        "name": "网络购物",
+        "name_en": "Online Shopping",
+        "cooldown": 2,
+        "description": "打开商店购买战斗牌"
+      },
+      "passive_skill": {
+        "name": "传奇商人",
+        "name_en": "Legendary Merchant",
+        "description": "商店可购买的战斗牌数量+1，进入商店时获得1星币"
+      },
+      "potential_awakening": {
+        "description": "所有角色商店可购买卡牌+1，10%概率将任意卡牌价格降至1星币，帕露南转账后商店中一张卡变为1星币"
+      }
+    },
+    {
+      "id": 102,
+      "name": "芬妮",
+      "name_en": "Fanny",
+      "name_jp": "ファニィ",
+      "full_name": "芬妮·克雷格",
+      "title": "古怪神探",
+      "title_en": "Eccentric Detective",
+      "birthday": "2月17日",
+      "hp": 10,
+      "atk": 1,
+      "def": 2,
+      "active_skill": {
+        "name": "麻烦制造者",
+        "name_en": "Trouble Maker",
+        "cooldown": 3,
+        "description": "本回合停留后，额外触发1次事件"
+      },
+      "passive_skill": {
+        "name": "华点发现!",
+        "name_en": "Point Discovery!",
+        "description": "芬妮触发事件后，获得3星币"
+      },
+      "potential_awakening": {
+        "requirement": "合作挑战等级6",
+        "description": "使用主动技能时，从2个随机事件中选择一个触发"
+      }
+    },
+    {
+      "id": 103,
+      "name": "阿兰娜",
+      "name_en": "Alana",
+      "full_name": "阿兰娜·格瑞斯塔",
+      "title": "社恐修女",
+      "title_en": "Socially Anxious Nun",
+      "birthday": "2月21日",
+      "hp": 9,
+      "atk": 1,
+      "def": 1,
+      "active_skill": {
+        "name": "铁处女",
+        "name_en": "Iron Maiden",
+        "cooldown": 3,
+        "description": "使用后，本回合无法被挑战且免疫陷阱。被动未触发时，额外获得被动效果"
+      },
+      "passive_skill": {
+        "name": "鼓起勇气!",
+        "name_en": "Pluck Up Courage!",
+        "description": "如果上回合未受到伤害，攻击力+3（不叠加，受到伤害时清除）"
+      },
+      "potential_awakening": {
+        "requirement": "合作挑战等级6",
+        "description": "使用主动技能后，本回合不受伤害且无法被反击"
+      }
+    },
+    {
+      "id": 104,
+      "name": "小町",
+      "name_en": "Komachi",
+      "full_name": "青山小町",
+      "title": "暗影忍者",
+      "title_en": "Shadow Ninja",
+      "birthday": "1月8日",
+      "hp": 9,
+      "atk": 1,
+      "def": 1,
+      "active_skill": {
+        "name": "忍术连击",
+        "name_en": "Ninja Combo",
+        "cooldown": 3,
+        "description": "本回合出牌数+1"
+      },
+      "passive_skill": {
+        "name": "复制忍者",
+        "name_en": "Copy Ninja",
+        "description": "每使用3张效果牌，复制最后使用的效果牌加入手牌"
+      },
+      "potential_awakening": {
+        "requirement": "合作挑战等级6",
+        "description": "每使用3张效果牌减少主动技能冷却1回合，并永久增加自身效果牌伤害+1"
+      }
+    },
+    {
+      "id": 105,
+      "name": "派德曼",
+      "name_en": "Padman",
+      "title": "社员叔叔",
+      "title_en": "Office Uncle",
+      "birthday": "5月20日",
+      "hp": 8,
+      "atk": 2,
+      "def": 2,
+      "active_skill": {
+        "name": "真的生气了",
+        "name_en": "Really Angry",
+        "cooldown": 3,
+        "description": "全取最大值增加，持续1回合"
+      },
+      "passive_skill": {
+        "name": "毫无主见",
+        "name_en": "Indecisive",
+        "description": "每个回合浮动增加或减少属性；攻击力-2~2，防御力-2~2，移动骰子点-2~2"
+      },
+      "potential_awakening": null
+    },
+    {
+      "id": 106,
+      "name": "帕帕拉",
+      "name_en": "Papara",
+      "title": "猩红辣妹",
+      "title_en": "Crimson Hot Girl",
+      "birthday": "10月31日",
+      "hp": 10,
+      "atk": 2,
+      "def": 1,
+      "active_skill": {
+        "name": "嘬你一口",
+        "name_en": "Suck You",
+        "cooldown": 3,
+        "description": "使用技能时，如果当前HP超过最大HP一半，扣除3HP。战斗中造成伤害后，回复造成伤害50%的HP，持续1回合"
+      },
+      "passive_skill": {
+        "name": "可爱即正义",
+        "name_en": "Cuteness is Justice",
+        "description": "当前HP不超过最大HP一半时，攻击力+3"
+      },
+      "potential_awakening": null
+    },
+    {
+      "id": 107,
+      "name": "恋",
+      "name_en": "Ren/Koi",
+      "name_jp": "レン",
+      "title": "游戏大师",
+      "title_en": "Game Master",
+      "birthday": "4月23日",
+      "hp": 8,
+      "atk": 2,
+      "def": 1,
+      "active_skill": {
+        "name": "熊孩子特权",
+        "name_en": "Brat's Privilege",
+        "cooldown": 3,
+        "description_pvp": "指定一名角色获取1张卡牌并获得鼠鼠护盾。护盾使目标下次受到的伤害-3",
+        "description_pve": "指定一名角色获取1张卡牌并获得鼠鼠护盾。护盾使目标下次受到的伤害-3"
+      },
+      "passive_skill": {
+        "name": "鼠鼠救我!",
+        "name_en": "Mousie Save Me!",
+        "description": "对友方角色使用主动技能时，如果目标HP≤最大HP的50%，自己也获得鼠鼠护盾并获取1张卡牌"
+      },
+      "potential_awakening": {
+        "description": "给角色施加鼠鼠护盾时，目标额外获得1层反击"
+      }
+    },
+    {
+      "id": 108,
+      "name": "米米",
+      "name_en": "Mimi",
+      "title": "看板娘",
+      "title_en": "Mascot/Banner Girl",
+      "birthday": "8月2日",
+      "hp": 9,
+      "atk": 1,
+      "def": 1,
+      "active_skill": {
+        "name": "商品补货",
+        "name_en": "Stock Replenishment",
+        "cooldown": 3,
+        "description": "丢弃所有手牌，然后抽取等于原手牌数量+1的卡牌"
+      },
+      "passive_skill": {
+        "name": "过期回收",
+        "name_en": "Expired Recycling",
+        "description": "每丢弃1张战斗牌获得1星币"
+      },
+      "potential_awakening": {
+        "requirement": "合作挑战等级6",
+        "description": "每累计获得25张卡牌获得1个筹码"
+      }
+    },
+    {
+      "id": 109,
+      "name": "Z3000",
+      "name_en": "Z3000",
+      "title": "垃圾箱",
+      "title_en": "Trash Bin",
+      "hp": 10,
+      "atk": 1,
+      "def": 2,
+      "active_skill": {
+        "name": "过来吧你",
+        "name_en": "Come Here",
+        "cooldown": 3,
+        "description_pvp": "拉取7格内的一个角色到自身所在格，造成1点伤害，并使其移动速度-2，持续1次移动",
+        "description_pve": "拉取7格内的一个怪物，造成5点伤害"
+      },
+      "passive_skill": {
+        "name": "垃圾分类",
+        "name_en": "Garbage Classification",
+        "description_pvp": "使用特定食物道具时放置神秘物品",
+        "description_pve": "击败怪物后减少主动技能冷却2回合"
+      },
+      "potential_awakening": {
+        "requirement": "合作挑战等级6",
+        "description": "每击败2个怪物永久攻击力+1。攻击力超过6时解锁特殊挑战"
+      }
+    },
+    {
+      "id": 110,
+      "name": "潘大猛",
+      "name_en": "Pandameng",
+      "title": "肉弹战车",
+      "title_en": "Meat Bullet Tank",
+      "birthday": "10月1日",
+      "hp": 14,
+      "atk": 1,
+      "def": 0,
+      "active_skill": {
+        "name": "搞事情",
+        "name_en": "Cause Trouble",
+        "cooldown": 4,
+        "cooldown_enhanced": 3,
+        "description_base": "获得随机卡牌：自爆或以牙还牙",
+        "description_enhanced": "获得随机卡牌：巧克力蛋糕或汉堡"
+      },
+      "passive_skill": {
+        "name": "有好有坏",
+        "name_en": "Good and Bad",
+        "description_base": "所有治疗效果+2，但受到伤害+1",
+        "description_enhanced": "使用汉堡或巧克力蛋糕后，5格内所有友方回复2HP"
+      },
+      "potential_awakening": {
+        "requirement": "合作挑战等级6",
+        "description": "吃东西获得1层反击；汉堡额外+2最大HP。主动技能嘲讽5格内怪物1回合。反击时攻击力增加等于受到伤害的值"
+      }
+    },
+    {
+      "id": 111,
+      "name": "璐璐",
+      "name_en": "Lulu",
+      "name_jp": "ルル",
+      "title": "史莱姆",
+      "title_en": "Slime",
+      "birthday": "12月12日",
+      "hp": 9,
+      "atk": 2,
+      "def": 2,
+      "active_skill": {
+        "name_pvp": "附着粘液",
+        "name_pve": "治愈粘液",
+        "cooldown_pvp": 4,
+        "cooldown_pve": 3,
+        "description_pvp": "指定10格内一名敌方角色，使其移动速度-3，持续2回合",
+        "description_pve": "指定10格内一名角色，使其获得3层治愈"
+      },
+      "passive_skill": {
+        "name": "细胞分裂",
+        "name_en": "Cell Division",
+        "description_base": "受到伤害后，主动技能冷却减少1",
+        "description_enhanced": "受到伤害后，获得1层治愈；主动技能冷却减少1"
+      },
+      "potential_awakening": null
+    },
+    {
+      "id": 112,
+      "name": "枫",
+      "name_en": "Fen",
+      "name_jp": "ヒメ",
+      "full_name": "姬梦枫",
+      "title": "旗袍娘",
+      "title_en": "Cheongsam Lady",
+      "birthday": "11月7日",
+      "hp": 10,
+      "atk": 1,
+      "def": 0,
+      "active_skill": {
+        "name": "运功",
+        "name_en": "Yunong",
+        "cooldown": 3,
+        "description_base": "回复2HP。如果拥有【养精蓄锐】，本回合攻击力+3",
+        "description_enhanced": "回复2HP。如果拥有【养精蓄锐】，本回合攻击力+4"
+      },
+      "passive_skill": {
+        "name": "养精蓄锐",
+        "description": "如果本回合未主动挑战他人，回合结束获得1层（最多1层）。拥有时：攻击力+2，防御力+2。发起战斗后清除"
+      },
+      "secondary_passive": {
+        "name": "心意相连",
+        "description": "使用主动技能时，友方姬梦朝获得1张【符卡-福】"
+      },
+      "potential_awakening": {
+        "requirement": "合作挑战等级6",
+        "description": "最大叠层增至5。闪避敌人时获得2层。5层时消耗2层对周围2格敌人造成88%伤害"
+      }
+    },
+    {
+      "id": 113,
+      "name": "蓝海晴",
+      "name_en": "Lan Haiching",
+      "title": "命运少女",
+      "title_en": "Destiny Girl",
+      "birthday": "3月22日",
+      "hp": 10,
+      "atk": 1,
+      "def": 1,
+      "active_skill": {
+        "name_pvp": "宿命回响",
+        "name_pve": "虚弱印记",
+        "cooldown": 3,
+        "description_pvp": "指定一名角色，使其受到伤害+1，持续2回合。期间被击败，蓝海晴获得4星币；存活则目标回复4HP",
+        "description_pve": "指定一个怪物，使其受到伤害+1，持续2回合。击败标记怪物蓝海晴获得3星币"
+      },
+      "passive_skill": {
+        "name": "幸运点",
+        "name_en": "Lucky Point",
+        "description": "移动最终骰子点数为6时，获得6星币"
+      },
+      "potential_awakening": {
+        "description": "被标记怪物被击败时，击败者获得1张【命运的指引】。使用主动技能将手中的【遥控骰子】转化为【命运的指引】"
+      }
+    },
+    {
+      "id": 114,
+      "name": "龙崎美咲",
+      "name_en": "Misaki",
+      "name_jp": "ミサキ",
+      "title": "太刀使",
+      "title_en": "Tachi User",
+      "birthday": "7月7日",
+      "hp": 9,
+      "atk": 0,
+      "def": 2,
+      "active_skill": {
+        "name": "樱花裂空斩",
+        "name_en": "Cherry Blossom Void Slash",
+        "cooldown": 3,
+        "description": "对目标格1名角色造成2点直接伤害，并获得1层剑气（最多3层）"
+      },
+      "passive_skill": {
+        "name": "剑气",
+        "name_en": "Sword Intent",
+        "description": "攻击命中或闪避成功时获得1层剑气。1-2层：每层+1攻击力。3层：+3攻击力。被击倒时清除所有层数"
+      },
+      "potential_awakening": null
+    },
+    {
+      "id": 115,
+      "name": "姬梦朝",
+      "name_en": "Zhao",
+      "name_jp": "ユメ",
+      "title": "风水师",
+      "title_en": "Feng Shui Master",
+      "birthday": "10月17日",
+      "hp": 10,
+      "atk": 1,
+      "def": 1,
+      "active_skill": {
+        "name": "白泽赐福",
+        "name_en": "White Baize's Blessing",
+        "cooldown": 3,
+        "description": "获得1回合治疗溢出转化为星币效果。获取1张福卡；将手中所有祸卡转化为福卡。PVE模式中指定目标获得基于治疗溢出的攻击力加成"
+      },
+      "passive_skill": {
+        "name": "福祸相倚",
+        "name_en": "Fortune and Misfortune Intertwined",
+        "description": "掷出1获得1张祸卡；掷出6获得1张福卡"
+      },
+      "secondary_passive": {
+        "name": "完美帮手",
+        "description": "对姬梦枫使用福卡时，目标获得1层养精蓄锐"
+      },
+      "potential_awakening": {
+        "description": "六级合作挑战解锁，包含属性加成和能力增强"
+      }
+    },
+    {
+      "id": 116,
+      "name": "娜蒂斯",
+      "name_en": "Nardis",
+      "name_jp": "ナーディス",
+      "full_name": "娜蒂斯·恩菲尔德",
+      "title": "绿洲女王",
+      "title_en": "Oasis Queen",
+      "birthday": "9月19日",
+      "hp": 10,
+      "atk": 1,
+      "def": 1,
+      "active_skill": {
+        "name": "女王特权",
+        "name_en": "Royal Privilege",
+        "cooldown": 3,
+        "description": "获得3张临时手牌，回合结束时自动丢弃获得的临时手牌"
+      },
+      "passive_skill": {
+        "name": "威压",
+        "name_en": "Oppressive Aura",
+        "description": "发起战斗时，每比目标多出一张手牌，攻击力+1，最多+3"
+      },
+      "potential_awakening": null
+    },
+    {
+      "id": 117,
+      "name": "茉莉",
+      "name_en": "Jasmine",
+      "name_jp": "ジャスミン",
+      "title": "家政机器人",
+      "title_en": "Housekeeping Robot",
+      "hp": 9,
+      "atk": 1,
+      "def": 0,
+      "active_skill": {
+        "name": "能量过载",
+        "name_en": "Energy Overload",
+        "cooldown": 4,
+        "description": "使用技能后，防御力-3，移动点数+3，持续1回合"
+      },
+      "passive_skill": {
+        "name": "移动充能",
+        "name_en": "Movement Charging",
+        "description": "每累计13点移动点数，交替提升1点攻击力、1点防御力（永久）"
+      },
+      "potential_awakening": null
+    },
+    {
+      "id": 118,
+      "name": "琉华",
+      "name_en": "Luka",
+      "name_jp": "ルカ",
+      "title": "午夜闪光",
+      "title_en": "Midnight Flash",
+      "hp": 9,
+      "atk": 1,
+      "def": 2,
+      "active_skill": {
+        "name": "无可阻挡",
+        "name_en": "Unstoppable",
+        "cooldown": 3,
+        "description": "使用后，移动变为投掷2个六面骰子；对路过的角色/怪物造成等于距离÷2的伤害。不触发战斗"
+      },
+      "passive_skill": {
+        "name": "蓄势待发",
+        "name_en": "Building Momentum",
+        "description": "每次经过或停留在安全点时，主动技能冷却减少2。每回合最多触发1次"
+      },
+      "potential_awakening": null
+    },
+    {
+      "id": 119,
+      "name": "南希露",
+      "name_en": "Nancy Lu",
+      "name_jp": "ナンシー・ロー",
+      "title": "网络魅影",
+      "title_en": "Cyber Phantom",
+      "hp": 9,
+      "atk": 1,
+      "def": 1,
+      "active_skill": {
+        "name": "远程侵入",
+        "name_en": "Remote Intrusion",
+        "cooldown": 3,
+        "description": "选择6格外的一名角色发起战斗；此次战斗不会触发被动技能的丢弃效果"
+      },
+      "passive_skill": {
+        "name": "被动防火墙",
+        "name_en": "Passive Firewall",
+        "description": "回合开始时，如果3格内没有其他角色，抽取1张战斗牌并获得+1攻击力和+1防御力。发起战斗后丢弃所有战斗牌"
+      },
+      "potential_awakening": null
+    },
+    {
+      "id": 120,
+      "name": "梅加斯",
+      "name_en": "Megas",
+      "name_jp": "メガス",
+      "full_name": "梅加斯·咸廉姆斯",
+      "title": "机械超人",
+      "title_en": "Mechanical Superman",
+      "birthday": "1月23日",
+      "hp": 9,
+      "atk": 0,
+      "def": 2,
+      "active_skill": {
+        "name": "轨道轰炸",
+        "name_en": "Orbital Bombardment",
+        "cooldown": 3,
+        "description_pvp": "丢弃所有卡牌；每丢弃2张，对随机其他角色造成1次2点伤害",
+        "description_pve": "丢弃所有卡牌；每丢弃2张，对6格内随机怪物造成3点伤害；丢弃卡牌每3点费用额外+1伤害"
+      },
+      "passive_skill": {
+        "name": "物资补充",
+        "name_en": "Resource Replenishment",
+        "description": "回合结束时，如果手牌数量低于阈值，抽取1张卡牌"
+      },
+      "potential_awakening": null
+    },
+    {
+      "id": 121,
+      "name": "超绝最可爱天使酱",
+      "name_en": "KAngel",
+      "name_jp": "超てんちゃん",
+      "title": "超天酱",
+      "title_en": "Super Angel",
+      "birthday": "7月7日",
+      "hp": 9,
+      "atk": 0,
+      "def": 1,
+      "active_skill": {
+        "name": "网络天使",
+        "name_en": "Web Angel",
+        "cooldown": 3,
+        "description": "获得2星币；每有1个角色/敌人被标记为粉丝状态，额外获得1星币（最多7星币）。粉丝数≥3时，额外回复3HP"
+      },
+      "passive_skill": {
+        "name": "小天使请安",
+        "name_en": "Little Angel's Salute",
+        "description": "攻击或被攻击时，目标获得粉丝状态。拥有粉丝状态的角色攻击本角色时伤害降低。被击败时清除所有粉丝状态"
+      },
+      "potential_awakening": null,
+      "crossover": "NEEDY GIRL OVERDOSE 联动角色"
+    },
+    {
+      "id": 122,
+      "name": "主播女孩",
+      "name_en": "Ame",
+      "name_jp": "あめちゃん",
+      "title": "糖糖",
+      "title_en": "Streamer Girl",
+      "birthday": "5月5日",
+      "hp": 9,
+      "atk": 1,
+      "def": 4,
+      "active_skill": {
+        "name": "感情过量摄入",
+        "name_en": "Emotional Overload",
+        "cooldown": 3,
+        "description": "获得等于当前Love层数的移动加成，回复等于当前Love层数的HP。回合结束时移除Love状态"
+      },
+      "passive_skill": {
+        "name": "无法承受的爱",
+        "name_en": "Unbearable Love",
+        "description": "受到伤害时获得Love状态。每层Love提供攻击力但降低防御力"
+      },
+      "potential_awakening": null,
+      "crossover": "NEEDY GIRL OVERDOSE 联动角色"
+    }
+  ]
+}

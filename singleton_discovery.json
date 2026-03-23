@@ -1,0 +1,96 @@
+{
+  "discovery_method": "class.parent(+0x58) -> parent_static_fields(+0xB8) -> _inst(+0x00)",
+  "singleton_base": "Tools.SimpleSingletonProvider`1",
+  "scene_types": {
+    "0": "None",
+    "1": "Login",
+    "2": "Home",
+    "3": "Battle",
+    "4": "SelectMusic",
+    "5": "Music",
+    "6": "SinglePlayer"
+  },
+  "scene_manager": {
+    "fields": {
+      "+0x10": "lastSceneType (SceneType enum int)",
+      "+0x18": "currentType (ReactiveProperty<SceneType>, value at +0x10 of reactive obj)"
+    }
+  },
+  "game_logic_manager": {
+    "note": "Only initialized during matches. All subsystems NULL at main menu.",
+    "fields": {
+      "+0x10": "initialize (bool)",
+      "+0x20": "room (RoomLogic)",
+      "+0x28": "battle (BattleLogic)",
+      "+0x30": "card (CardLogic)",
+      "+0x40": "fight (FightLogic)",
+      "+0x48": "land (LandLogic)",
+      "+0x68": "match (MatchLogic)",
+      "+0x88": "action (ActionLogic)",
+      "+0xB0": "mail (MailLogic)",
+      "+0xB8": "store (StoreLogic)",
+      "+0xD8": "task (TaskLogic)",
+      "+0xE0": "activity (ActivityLogic)",
+      "+0x100": "battlePass (BattlePassLogic)",
+      "+0x120": "signIn (SignInLogic)"
+    }
+  },
+  "action_logic": {
+    "fields": {
+      "+0x18": "playerAction (PlayerActionEnum)",
+      "+0x20": "UsableCards (RepeatedField<Int32>)",
+      "+0x30": "throwDiceSn (Int64)"
+    },
+    "methods": [
+      "DealThrowDice(1)", "DealMove(1)", "DealUseEffectCard(1)",
+      "DealAbandonCard(1)", "ShopBuyAction(1)"
+    ]
+  },
+  "rpc_pattern": {
+    "note": "Each C2SRPC class has XxxC2SCall(1 param) method. Param is a protobuf message.",
+    "example": "ThrowDiceC2SRPC.ThrowDiceC2SCall(ThrowDiceC2S msg)"
+  },
+  "protocol_messages": {
+    "ThrowDiceC2S": {
+      "+0x18": "info_ (ActionInfo: sn_ at +0x18, useTime_ at +0x20)",
+      "+0x20": "devPoint_ (int32)",
+      "+0x24": "isNoOper_ (bool)"
+    },
+    "BattleChoiceC2S": {
+      "+0x18": "info_ (ActionInfo)",
+      "+0x20": "devPoint_ (int32)",
+      "+0x24": "dodge_ (bool)",
+      "+0x25": "noDodge_ (bool)"
+    },
+    "UseEffectCardC2S": {
+      "+0x18": "info_ (ActionInfo)",
+      "+0x28": "cardId_ (int32)",
+      "+0x30": "targetIds_ (RepeatedField<Int64>)",
+      "+0x44": "useSkill_ (bool)",
+      "+0x48": "skillId_ (int32)"
+    },
+    "StopOrContinueC2S": {
+      "+0x18": "info_ (ActionInfo)",
+      "+0x20": "stop_ (bool)"
+    },
+    "MoveC2S": {
+      "+0x18": "info_ (ActionInfo)",
+      "+0x20": "direction_ (int32)",
+      "+0x24": "forceDir_ (bool)",
+      "+0x28": "path_ (RepeatedField<Int32>)"
+    },
+    "MailGetRewardC2S": {
+      "+0x18": "id_ (int32)"
+    },
+    "TaskRewardC2S": {
+      "+0x18": "defId_ (int32)",
+      "+0x1C": "type_ (int32)"
+    },
+    "GetSignInRewardC2S": {
+      "+0x18": "activityId_ (int32)"
+    },
+    "StartMatchC2S": {
+      "+0x18": "teamId_ (int64)"
+    }
+  }
+}
