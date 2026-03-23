@@ -1,11 +1,9 @@
 {
   "game_process": {
     "exe_name": "AstralParty_CN.exe",
-    "current_pid": 27836,
     "note": "PID changes on every restart"
   },
   "gameassembly_dll": {
-    "current_base": "0x7FFEF7C50000",
     "size": "0x4007000",
     "note": "Base changes on every restart due to ASLR"
   },
