@@ -1,0 +1,59 @@
+{
+  "_meta": {
+    "game_version": "AstralParty_CN (2026-03)",
+    "last_verified": "2026-03-24",
+    "verification_method": "Debug overlay CardId display + manual cross-check with in-game hand cards",
+    "id_scheme": {
+      "10xxx": "Battle cards (used during combat encounters)",
+      "20xxx": "Effect cards (used on the board)",
+      "21xxx": "Special cards (character-specific or map-specific)"
+    },
+    "note": "Cards marked VERIFIED were confirmed by reading CardId from memory and matching with the card name shown in-game UI. Unverified entries are inferred from IL2CPP class analysis and wiki data."
+  },
+
+  "verified_cards": {
+    "battle_cards": {
+      "10001": {"name_cn": "全力攻击(中)", "name_en": "ATK UP (M)", "type": "battle_atk"},
+      "10002": {"name_cn": "严阵以待(中)", "name_en": "DEF UP (M)", "type": "battle_def"},
+      "10003": {"name_cn": "全力攻击(大)", "name_en": "ATK UP (L)", "type": "battle_atk"},
+      "10004": {"name_cn": "严阵以待(大)", "name_en": "DEF UP (L)", "type": "battle_def"},
+      "10005": {"name_cn": "全力攻击(特大)", "name_en": "ATK UP (XL)", "type": "battle_atk"},
+      "10006": {"name_cn": "严阵以待(特大)", "name_en": "DEF UP (XL)", "type": "battle_def"}
+    },
+    "effect_cards": {
+      "20001": {"name_cn": "激光射线", "name_en": "Laser Beam", "type": "effect_damage"},
+      "20002": {"name_cn": "巧克力蛋糕", "name_en": "Chocolate Cake", "type": "effect_heal"},
+      "20003": {"name_cn": "保护屏障", "name_en": "Shield Barrier", "type": "effect_defense"},
+      "20004": {"name_cn": "钓鱼执法", "name_en": "Entrapment", "type": "effect_special"},
+      "20005": {"name_cn": "遥控骰子", "name_en": "Remote Dice", "type": "effect_utility"},
+      "20008": {"name_cn": "狂暴", "name_en": "Berserk", "type": "effect_buff"},
+      "20009": {"name_cn": "自爆", "name_en": "Self Destruct", "type": "effect_damage"},
+      "20010": {"name_cn": "路障", "name_en": "Barricade", "type": "effect_trap"},
+      "20011": {"name_cn": "方向选择", "name_en": "Direction Choice", "type": "effect_utility"},
+      "20012": {"name_cn": "皮筋弹弓", "name_en": "Slingshot", "type": "effect_damage"},
+      "20013": {"name_cn": "板砖", "name_en": "Brick", "type": "effect_damage"},
+      "20014": {"name_cn": "汉堡", "name_en": "Hamburger", "type": "effect_heal"},
+      "20015": {"name_cn": "以牙还牙", "name_en": "Eye for Eye", "type": "effect_counter"},
+      "20017": {"name_cn": "错误的目标", "name_en": "Wrong Target", "type": "effect_special"},
+      "20018": {"name_cn": "爆破专家", "name_en": "Demolition Expert", "type": "effect_damage"},
+      "20019": {"name_cn": "过期便当", "name_en": "Expired Bento", "type": "effect_special"},
+      "20020": {"name_cn": "丧心病狂", "name_en": "Frenzy", "type": "effect_buff"},
+      "20022": {"name_cn": "抢夺", "name_en": "Snatch", "type": "effect_special"},
+      "20024": {"name_cn": "随机传送门", "name_en": "Random Portal", "type": "effect_utility"}
+    }
+  },
+
+  "unverified_cards": {
+    "note": "These are inferred from IL2CPP class analysis and wiki. CardId not yet confirmed in-game.",
+    "20006": {"name_cn": "砖头投掷", "name_en": "Brick Throw", "type": "effect_damage", "confidence": "medium"},
+    "20007": {"name_cn": "过期便当", "name_en": "Expired Bento", "type": "effect_damage", "confidence": "low"},
+    "20020": {"name_cn": "随机传送门/丧心病狂", "note": "Conflicting data, needs re-verification"},
+    "21001-21022": "Map/character specific cards - see card_db.py for full list"
+  },
+
+  "card_tiers": {
+    "note": "Game has 3 tiers for ATK/DEF battle cards: 中(M), 大(L), 特大(XL). NO 小(S) tier exists.",
+    "attack": {"中": 10001, "大": 10003, "特大": 10005},
+    "defense": {"中": 10002, "大": 10004, "特大": 10006}
+  }
+}

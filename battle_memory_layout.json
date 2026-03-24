@@ -1,0 +1,159 @@
+{
+  "_meta": {
+    "game_version": "AstralParty_CN (2026-03)",
+    "last_verified": "2026-03-24",
+    "verification_method": "Live memory injection + manual cross-check with game UI"
+  },
+
+  "battle_logic": {
+    "class": "GameLogic.BattleLogic",
+    "access": "GameLogicManager.battle (+0x28)",
+    "fields": {
+      "+0x10": {"name": "signal", "type": "BattleSignal"},
+      "+0x18": {"name": "playerDatas", "type": "List<BattlePlayerData>", "verified": true,
+                "note": "IL2CPP List: items at +0x10, count at +0x18, elements start at items+0x20 (stride 0x08)"},
+      "+0x20": {"name": "summon", "type": "SummonLogic"},
+      "+0x28": {"name": "clientFinishReady", "type": "bool"},
+      "+0x30": {"name": "battleInfo", "type": "BattleInfo"},
+      "+0x38": {"name": "handCard", "type": "HandCardLogic"},
+      "+0x50": {"name": "curPlayerId", "type": "Int64", "verified": true,
+                "note": "Direct memory read, no method call needed. ID of player whose turn it is."}
+    },
+    "methods": {
+      "GetSelfPlayerData(0)": "Returns BattlePlayerData for local player",
+      "GetPlayerDataBySlot(1)": "Returns BattlePlayerData by slot index (0-based)",
+      "GetCurPlayerId(0)": "Returns current player ID (Int64)"
+    }
+  },
+
+  "battle_player_data": {
+    "class": "GameLogic.BattlePlayerData",
+    "access": "BattleLogic.playerDatas[slot]",
+    "direct_fields": {
+      "+0x10": {"name": "roomPlayer", "type": "RoomPlayer (ptr)", "verified": true},
+      "+0x18": {"name": "characterInstance", "type": "Character (ptr)", "verified": true},
+      "+0x20": {"name": "rank", "type": "Int32", "verified": true},
+      "+0x24": {"name": "killCount", "type": "Int32", "verified": true},
+      "+0x28": {"name": "totalDie", "type": "Int32", "verified": true},
+      "+0x2C": {"name": "totalDamage", "type": "Int32", "verified": true},
+      "+0x30": {"name": "totalInjured", "type": "Int32", "verified": true},
+      "+0x34": {"name": "treatmentScore", "type": "Int32", "verified": true},
+      "+0x38": {"name": "skillCD", "type": "Int32", "verified": true,
+                "note": "Direct int field, NOT a reactive property. Read directly from BPD."}
+    },
+    "backing_fields": {
+      "+0x40": {"name": "Property (candidate 1)", "type": "BattleProperty (ptr)",
+                "note": "Scan BPD+0x40/0x48/0x50 for BattleProperty. Validate via playerId at prop+0x10 > 0 and reactive ptr at prop+0x18 != NULL"},
+      "+0x48": {"name": "Property (candidate 2)", "type": "BattleProperty (ptr)"},
+      "+0x50": {"name": "Property (candidate 3)", "type": "BattleProperty (ptr)"}
+    },
+    "methods": {
+      "get_Property(0)": "Returns BattleProperty object",
+      "get_cardContainer(0)": "Returns CardContainer object",
+      "get_buffContainer(0)": "Returns BuffContainer object"
+    }
+  },
+
+  "battle_property": {
+    "class": "GameLogic.BattleProperty",
+    "access": "BattlePlayerData.get_Property()",
+    "note": "All stat fields are ReactiveProperty<int> objects. Read pattern: ptr = read_ptr(prop + offset); value = read_int32(ptr + 0x10)",
+    "fields": {
+      "+0x10": {"name": "playerId", "type": "Int32 (raw, not reactive)", "verified": true},
+      "+0x18": {"name": "stars", "type": "ReactiveProperty<int>", "verified": true,
+                "note": "PVP = star count, PVE = level"},
+      "+0x20": {"name": "gold", "type": "ReactiveProperty<int>", "verified": true},
+      "+0x28": {"name": "unknown_0x28", "type": "ReactiveProperty<int>?"},
+      "+0x30": {"name": "hp", "type": "ReactiveProperty<int>", "verified": true},
+      "+0x38": {"name": "unknown_0x38", "type": "ReactiveProperty<int>?",
+                "note": "Reads inconsistent values. NOT maxHp."},
+      "+0x40": {"name": "atk", "type": "ReactiveProperty<int>", "verified": true},
+      "+0x48": {"name": "def", "type": "ReactiveProperty<int>", "verified": true},
+      "+0x50": {"name": "unknown_0x50", "type": "unknown"},
+      "+0x58": {"name": "unknown_0x58", "type": "ReactiveProperty<int>?"},
+      "+0x60": {"name": "unknown_0x60", "type": "ReactiveProperty<int>?"},
+      "+0x68": {"name": "unknown_0x68", "type": "ReactiveProperty<int>?"},
+      "+0x70": {"name": "unknown_0x70", "type": "unknown"},
+      "+0x78": {"name": "skillCD", "type": "ReactiveProperty<int>", "verified": true,
+                "note": "Skill cooldown remaining turns. Also available as direct int at BPD+0x38."}
+    },
+    "reactive_property_read_pattern": {
+      "step1": "reactive_obj = read_ptr(property_base + field_offset)",
+      "step2": "value = read_int32(reactive_obj + 0x10)",
+      "note": "ReactiveProperty<T> stores current value at +0x10 relative to the reactive object"
+    }
+  },
+
+  "card_container": {
+    "class": "GameLogic.CardContainer",
+    "access": "BattlePlayerData.get_cardContainer()",
+    "methods": {
+      "get_CardCount(0)": "Returns number of cards in hand",
+      "get_CardInfoList(0)": "Returns List<CardInfo>"
+    },
+    "card_info_structure": {
+      "note": "IL2CPP List<CardInfo>: items at list+0x10, count at list+0x18, elements start at items+0x20",
+      "CardInfo_fields": {
+        "+0x10": {"name": "UniqueId", "type": "Int32", "note": "Instance-unique ID per match"},
+        "+0x14": {"name": "CardId", "type": "Int32", "verified": true, "note": "Card type ID from config table"},
+        "+0x18": {"name": "PurifyNum", "type": "Int32", "note": "Purification/upgrade count"}
+      }
+    }
+  },
+
+  "fight_logic": {
+    "class": "GameLogic.FightLogic",
+    "access": "GameLogicManager.fight (+0x40)",
+    "fields": {
+      "+0x10": {"name": "signal", "type": "FightSignal"},
+      "+0x18": {"name": "fightType", "type": "FightType (Int32 enum)", "verified": true},
+      "+0x1C": {"name": "fightStatus", "type": "bool", "verified": true},
+      "+0x20": {"name": "battleFightData", "type": "BattleFightData (ptr)", "verified": true}
+    }
+  },
+
+  "land_logic": {
+    "class": "GameLogic.LandLogic",
+    "access": "GameLogicManager.land (+0x48)",
+    "fields": {
+      "+0x10": {"name": "landPoint", "type": "Int32", "verified": true},
+      "+0x14": {"name": "inHospital", "type": "bool", "verified": true},
+      "+0x18": {"name": "signal", "type": "LandSignal"},
+      "+0x20": {"name": "cardShopAction", "type": "Action"},
+      "+0x28": {"name": "pveShopData", "type": "PVEShopBuyC2S"}
+    }
+  },
+
+  "action_logic": {
+    "class": "GameLogic.ActionLogic",
+    "access": "GameLogicManager.action (+0x88)",
+    "fields": {
+      "+0x18": {"name": "playerAction", "type": "PlayerActionEnum (Int32)", "verified": true,
+                "values": {
+                  "0": "Idle",
+                  "1": "ThrowDice",
+                  "2": "UseCard",
+                  "3": "BattleChoice",
+                  "4": "StopOrContinue",
+                  "5": "AbandonCard",
+                  "6": "ShopBuy",
+                  "7": "SelectTarget",
+                  "8": "DiceResult",
+                  "9": "ChooseDirection"
+                }},
+      "+0x20": {"name": "usableCards", "type": "RepeatedField<Int32>", "verified": true,
+                "note": "IL2CPP RepeatedField: array at +0x10, count at +0x18"},
+      "+0x30": {"name": "throwDiceSn", "type": "Int64", "verified": true}
+    }
+  },
+
+  "il2cpp_list_layout": {
+    "note": "Standard IL2CPP List<T> memory layout",
+    "+0x10": "items (array ptr)",
+    "+0x18": "count (Int32)",
+    "array_layout": {
+      "+0x18": "array length",
+      "+0x20": "first element (stride depends on element type: 0x08 for references, 0x04 for int32)"
+    }
+  }
+}
