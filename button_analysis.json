@@ -1,0 +1,1097 @@
+{
+  "analysis_time": "2026-03-23",
+  "summary": {
+    "total_ui_button_classes": 257,
+    "scanned_button_classes": 7,
+    "unscanned_button_classes": 251,
+    "battle_relevant_windows": 20,
+    "note": "GButton (FairyGUI) is generic and used everywhere; UI-namespace buttons are specialized"
+  },
+  "windows": {
+    "FightWindow": {
+      "rpc": "BattleChoiceC2SRPC",
+      "also_uses_rpc": [
+        "BattleUseCardC2SRPC",
+        "NearFightPlayerC2SRPC"
+      ],
+      "buttons": [
+        {
+          "class": "UIFight_Button_Dodge",
+          "function": "闪避选择",
+          "safe": false,
+          "auto_action": "click_if_defending",
+          "scanned": true
+        },
+        {
+          "class": "UIHandCard_Button_Card",
+          "function": "战斗中使用手牌",
+          "safe": false,
+          "auto_action": "skip",
+          "scanned": false
+        },
+        {
+          "class": "UICard_Button_DiceNumb",
+          "function": "骰子点数选择(卡牌效果)",
+          "safe": false,
+          "auto_action": "skip",
+          "scanned": false
+        },
+        {
+          "class": "GButton",
+          "function": "攻击/放过/隐藏/显示等通用按钮",
+          "safe": false,
+          "auto_action": "context_dependent",
+          "scanned": true,
+          "note": "title=攻击!/放过/隐藏/显示"
+        }
+      ],
+      "recommended_action": "wait_timeout_auto_defend",
+      "notes": "FightWindow包含发起PK(UIFight_LaunchPK子组件)和战斗选择。超时自动防御是最安全策略"
+    },
+    "LandShopWindow": {
+      "rpc": "ShopBuyC2SRPC",
+      "also_uses_rpc": [
+        "PVEShopBuyC2SRPC",
+        "PlayerShopBuyC2SRPC"
+      ],
+      "buttons": [
+        {
+          "class": "UILandShop_Button_Buy",
+          "function": "购买商品",
+          "safe": false,
+          "auto_action": "skip_or_strategy",
+          "scanned": false
+        },
+        {
+          "class": "UILandShop_Button_Card",
+          "function": "查看/选择卡牌商品",
+          "safe": true,
+          "auto_action": "skip",
+          "scanned": false
+        },
+        {
+          "class": "UIButton_GoodsItem",
+          "function": "商品列表项",
+          "safe": true,
+          "auto_action": "skip",
+          "scanned": false
+        },
+        {
+          "class": "UIButton_GoodsItem_Store",
+          "function": "商店商品项",
+          "safe": true,
+          "auto_action": "skip",
+          "scanned": false
+        }
+      ],
+      "recommended_action": "close_or_skip",
+      "notes": "商店弹窗，可自动关闭或根据策略购买特定卡牌"
+    },
+    "LandLotteryWindow": {
+      "rpc": "LotteryChoiceC2SRPC",
+      "buttons": [
+        {
+          "class": "UILandLottery_Button_LotteryNumb",
+          "function": "选择彩票号码",
+          "safe": false,
+          "auto_action": "random_pick",
+          "scanned": false
+        },
+        {
+          "class": "UILandLottery_Button_Lottery_Selection",
+          "function": "确认彩票选择",
+          "safe": false,
+          "auto_action": "auto_confirm",
+          "scanned": false
+        }
+      ],
+      "recommended_action": "random_pick_and_confirm",
+      "notes": "彩票选号窗口，随机选号后确认即可"
+    },
+    "LandGambleWindow": {
+      "rpc": "StartGambleC2SRPC",
+      "also_uses_rpc": [
+        "GambleThrowDicC2SRPC"
+      ],
+      "buttons": [
+        {
+          "class": "UILandGamble_Button_dd",
+          "function": "猜大(大)",
+          "safe": false,
+          "auto_action": "random_choice",
+          "scanned": false
+        },
+        {
+          "class": "UILandGamble_Button_Even",
+          "function": "猜小/偶数",
+          "safe": false,
+          "auto_action": "random_choice",
+          "scanned": false
+        }
+      ],
+      "recommended_action": "random_choice_and_roll",
+      "notes": "赌博猜大小窗口，dd=大，Even=小/偶。随机选择后自动掷骰"
+    },
+    "LandDivinationWindow": {
+      "rpc": "TriggerDivinationC2SRPC",
+      "buttons": [
+        {
+          "class": "UILandDivination_Button_DivinationCard",
+          "function": "选择占卜卡牌",
+          "safe": false,
+          "auto_action": "random_pick",
+          "scanned": false
+        }
+      ],
+      "recommended_action": "random_pick_card",
+      "notes": "占卜窗口，随机选一张卡即可"
+    },
+    "LandHospitalWindow": {
+      "rpc": "TriggerHospitalC2SRPC",
+      "buttons": [
+        {
+          "class": "UIButton_Next",
+          "function": "确认/下一步",
+          "safe": false,
+          "auto_action": "auto_confirm",
+          "scanned": false
+        },
+        {
+          "class": "UIButton_Next2",
+          "function": "确认/下一步(变体)",
+          "safe": false,
+          "auto_action": "auto_confirm",
+          "scanned": false
+        }
+      ],
+      "recommended_action": "auto_confirm",
+      "notes": "医院事件窗口，通常只需确认"
+    },
+    "LandRollGoldWindow": {
+      "rpc": "RollGoldC2SRPC",
+      "buttons": [
+        {
+          "class": "UILandRollGold_Button_Gold",
+          "function": "掷骰子赢金币",
+          "safe": false,
+          "auto_action": "auto_roll",
+          "scanned": false
+        }
+      ],
+      "recommended_action": "auto_roll",
+      "notes": "掷金币窗口，自动掷骰即可"
+    },
+    "LandPursuitWindow": {
+      "rpc": "PursuitC2SRPC",
+      "also_uses_rpc": [
+        "MonsterPursuitC2SRPC"
+      ],
+      "buttons": [
+        {
+          "class": "UILandPursuit_Button_RoleHeadshot",
+          "function": "选择追击目标(角色头像)",
+          "safe": false,
+          "auto_action": "strategy_dependent",
+          "scanned": false
+        }
+      ],
+      "recommended_action": "pick_leading_player_or_skip",
+      "notes": "追击窗口，选择要追击的玩家。需要策略判断"
+    },
+    "UpgradeWindow": {
+      "rpc": null,
+      "possible_rpc": [
+        "PveHeroUpLvC2SRPC",
+        "PveHeroTalentUpC2SRPC"
+      ],
+      "buttons": [
+        {
+          "class": "UIButton_Next",
+          "function": "确认升级",
+          "safe": true,
+          "auto_action": "auto_confirm",
+          "scanned": false
+        },
+        {
+          "class": "UIButton_Next2",
+          "function": "确认升级(变体)",
+          "safe": true,
+          "auto_action": "auto_confirm",
+          "scanned": false
+        }
+      ],
+      "recommended_action": "auto_confirm",
+      "notes": "升级/拿星窗口，通常自动确认即可"
+    },
+    "BattleSettlementPanel": {
+      "rpc": null,
+      "buttons": [
+        {
+          "class": "UIBattleSettlement_Button_Sure",
+          "function": "确认结算",
+          "safe": true,
+          "auto_action": "auto_click",
+          "scanned": false
+        },
+        {
+          "class": "UIBattleSettlement_Button_Praise",
+          "function": "点赞玩家",
+          "safe": true,
+          "auto_action": "skip",
+          "scanned": false
+        },
+        {
+          "class": "UIBattleSettlement_Button_OperatePlayer",
+          "function": "操作玩家(加好友等)",
+          "safe": true,
+          "auto_action": "skip",
+          "scanned": false
+        },
+        {
+          "class": "UIBattleSettlement_Button_AchieveItem",
+          "function": "查看成就",
+          "safe": true,
+          "auto_action": "skip",
+          "scanned": false
+        },
+        {
+          "class": "UIBattleSettlement_Button_Relic",
+          "function": "查看遗物",
+          "safe": true,
+          "auto_action": "skip",
+          "scanned": false
+        }
+      ],
+      "recommended_action": "auto_click_sure",
+      "notes": "结算面板，纯UI。点击确认按钮即可"
+    },
+    "CardWindow": {
+      "rpc": "UseEffectCardC2SRPC",
+      "also_uses_rpc": [
+        "UseQuickCardC2SRPC",
+        "BattleUseCardC2SRPC"
+      ],
+      "buttons": [
+        {
+          "class": "UIHandCard_Button_Card",
+          "function": "选择手牌",
+          "safe": false,
+          "auto_action": "strategy_dependent",
+          "scanned": false
+        },
+        {
+          "class": "UICard_Button_DiceNumb",
+          "function": "卡牌骰子点数选择",
+          "safe": false,
+          "auto_action": "skip",
+          "scanned": false
+        }
+      ],
+      "recommended_action": "strategy_dependent",
+      "notes": "卡牌使用窗口，需要卡牌策略"
+    },
+    "LandEventWindow": {
+      "rpc": "TriggerEventC2SRPC",
+      "also_uses_rpc": [
+        "SelectEventC2SRPC",
+        "EventThrowDiceC2SRPC"
+      ],
+      "buttons": [
+        {
+          "class": "UILandEvent_Button_Card",
+          "function": "事件中选择卡牌",
+          "safe": false,
+          "auto_action": "auto_confirm_or_pick",
+          "scanned": false
+        },
+        {
+          "class": "UIButton_Next",
+          "function": "确认/下一步",
+          "safe": false,
+          "auto_action": "auto_confirm",
+          "scanned": false
+        }
+      ],
+      "recommended_action": "auto_confirm",
+      "notes": "地块事件窗口，大多数情况自动确认"
+    },
+    "LoseCardWindow": {
+      "rpc": "AbandonCardC2SRPC",
+      "buttons": [
+        {
+          "class": "UILoseCard_Button_Large",
+          "function": "选择要丢弃的卡牌",
+          "safe": false,
+          "auto_action": "discard_worst",
+          "scanned": false
+        }
+      ],
+      "recommended_action": "discard_lowest_value",
+      "notes": "弃牌窗口，自动丢弃价值最低的卡牌"
+    },
+    "LandBatteryWindow": {
+      "rpc": null,
+      "possible_rpc": [
+        "LandChoiceTargetC2SRPC"
+      ],
+      "buttons": [
+        {
+          "class": "UILandBattery_Button_RoleHeadshot",
+          "function": "选择炮台攻击目标",
+          "safe": false,
+          "auto_action": "pick_leading_player",
+          "scanned": false
+        }
+      ],
+      "recommended_action": "pick_leading_player",
+      "notes": "炮台窗口，选择攻击目标。建议攻击领先玩家"
+    },
+    "LandVendorWindow": {
+      "rpc": "VendorBuyCardC2SRPC",
+      "buttons": [
+        {
+          "class": "UILandVendor_Button_Sure",
+          "function": "确认购买卡牌",
+          "safe": false,
+          "auto_action": "strategy_dependent",
+          "scanned": false
+        },
+        {
+          "class": "UIHandCard_Button_Card",
+          "function": "选择要购买的卡牌",
+          "safe": true,
+          "auto_action": "skip",
+          "scanned": false
+        }
+      ],
+      "recommended_action": "buy_if_good_card_else_skip",
+      "notes": "小贩窗口，可购买卡牌。需策略判断"
+    },
+    "LandFillingStationWindow": {
+      "rpc": "StopOrContinueC2SRPC",
+      "buttons": [
+        {
+          "class": "UILandFillingStation_Button_Stop",
+          "function": "停下/继续选择",
+          "safe": false,
+          "auto_action": "strategy_dependent",
+          "scanned": false
+        }
+      ],
+      "recommended_action": "continue_by_default",
+      "notes": "加油站窗口，选择停下或继续前进"
+    },
+    "LandRelicWindow": {
+      "rpc": "BuyRelicC2SRPC",
+      "also_uses_rpc": [
+        "SelectRelicC2SRPC"
+      ],
+      "buttons": [
+        {
+          "class": "UILandRelic_Button_Sure",
+          "function": "确认购买遗物",
+          "safe": false,
+          "auto_action": "buy_if_affordable",
+          "scanned": false
+        },
+        {
+          "class": "UIRelic_Button_Item",
+          "function": "遗物列表项",
+          "safe": true,
+          "auto_action": "skip",
+          "scanned": false
+        }
+      ],
+      "recommended_action": "buy_best_affordable",
+      "notes": "遗物商店窗口，购买遗物"
+    },
+    "LandPrayWindow": {
+      "rpc": null,
+      "possible_rpc": [
+        "TriggerDestinyC2SRPC"
+      ],
+      "buttons": [
+        {
+          "class": "UIButton_Next",
+          "function": "确认祈祷",
+          "safe": false,
+          "auto_action": "auto_confirm",
+          "scanned": false
+        }
+      ],
+      "recommended_action": "auto_confirm",
+      "notes": "祈祷窗口，功能未完全确认，建议自动确认"
+    },
+    "BoxPropWindow": {
+      "rpc": null,
+      "buttons": [
+        {
+          "class": "UIButton_Next",
+          "function": "确认/关闭",
+          "safe": true,
+          "auto_action": "auto_close",
+          "scanned": false
+        }
+      ],
+      "recommended_action": "auto_close",
+      "notes": "道具箱弹窗，纯UI展示"
+    },
+    "RewardWindow": {
+      "rpc": null,
+      "buttons": [
+        {
+          "class": "UIButton_Next",
+          "function": "确认奖励",
+          "safe": true,
+          "auto_action": "auto_close",
+          "scanned": false
+        },
+        {
+          "class": "UIButton_Next2",
+          "function": "确认奖励(变体)",
+          "safe": true,
+          "auto_action": "auto_close",
+          "scanned": false
+        }
+      ],
+      "recommended_action": "auto_close",
+      "notes": "奖励展示窗口，纯UI，自动关闭即可"
+    }
+  },
+  "additional_battle_windows": {
+    "OperateTimeWindow": {
+      "rpc": null,
+      "buttons": [],
+      "recommended_action": "monitor_timer",
+      "notes": "操作倒计时窗口，无按钮但需监控倒计时",
+      "scanned": true
+    },
+    "UIBattleInfoPanel": {
+      "rpc": null,
+      "buttons": [
+        {
+          "class": "UIBattleInfo_Button_Victory",
+          "function": "查看胜利条件",
+          "safe": true,
+          "auto_action": "skip",
+          "scanned": true
+        },
+        {
+          "class": "UIBattleInfo_Button_MapChat",
+          "function": "地图快捷聊天",
+          "safe": true,
+          "auto_action": "skip",
+          "scanned": true
+        },
+        {
+          "class": "UIBattleInfo_Button_PlayerInfo",
+          "function": "查看玩家信息",
+          "safe": true,
+          "auto_action": "skip",
+          "scanned": true
+        },
+        {
+          "class": "UIBattleInfo_Button_PVEProgress",
+          "function": "PVE进度按钮",
+          "safe": true,
+          "auto_action": "skip",
+          "scanned": false
+        },
+        {
+          "class": "UIButton_Buff",
+          "function": "Buff信息展示",
+          "safe": true,
+          "auto_action": "skip",
+          "scanned": true
+        }
+      ],
+      "recommended_action": "read_only",
+      "notes": "战斗信息面板，主要用于信息展示"
+    },
+    "UIHandCardPanel": {
+      "rpc": "UseEffectCardC2SRPC",
+      "also_uses_rpc": [
+        "BattleThrowDiceC2SRPC",
+        "MoveC2SRPC"
+      ],
+      "buttons": [
+        {
+          "class": "UIHandCard_Button_Skill",
+          "function": "使用角色技能",
+          "safe": false,
+          "auto_action": "strategy_dependent",
+          "scanned": true
+        },
+        {
+          "class": "UIHandCard_Button_Card",
+          "function": "使用/查看手牌",
+          "safe": false,
+          "auto_action": "strategy_dependent",
+          "scanned": false
+        },
+        {
+          "class": "UIButton_MoveArrow",
+          "function": "移动方向选择箭头",
+          "safe": false,
+          "auto_action": "auto_choose_direction",
+          "scanned": false
+        }
+      ],
+      "recommended_action": "strategy_dependent",
+      "notes": "手牌面板，包含技能和卡牌使用"
+    },
+    "BattlePlayerInfoWindow": {
+      "rpc": null,
+      "buttons": [
+        {
+          "class": "UIBattlePlayerInfo_Button_Arrow",
+          "function": "切换玩家信息页",
+          "safe": true,
+          "auto_action": "skip",
+          "scanned": false
+        },
+        {
+          "class": "UIBattlePlayerInfo_Button_BuffItem",
+          "function": "查看Buff详情",
+          "safe": true,
+          "auto_action": "skip",
+          "scanned": false
+        },
+        {
+          "class": "UIBattlePlayerInfo_Button_GameMode",
+          "function": "查看游戏模式",
+          "safe": true,
+          "auto_action": "skip",
+          "scanned": false
+        },
+        {
+          "class": "UIBattlePlayerInfo_Button_Relic",
+          "function": "查看遗物",
+          "safe": true,
+          "auto_action": "skip",
+          "scanned": false
+        },
+        {
+          "class": "UIBattlePlayerInfo_Button_RelicChat",
+          "function": "遗物聊天",
+          "safe": true,
+          "auto_action": "skip",
+          "scanned": false
+        }
+      ],
+      "recommended_action": "skip",
+      "notes": "玩家详细信息弹窗，纯UI查看"
+    },
+    "BattleRelicInfoWindow": {
+      "rpc": null,
+      "buttons": [
+        {
+          "class": "UIBattleRelicInfo_Button_Arrow",
+          "function": "翻页",
+          "safe": true,
+          "auto_action": "skip",
+          "scanned": false
+        },
+        {
+          "class": "UIBattleRelicInfo_Button_Chat",
+          "function": "聊天",
+          "safe": true,
+          "auto_action": "skip",
+          "scanned": false
+        },
+        {
+          "class": "UIBattleRelicInfo_Button_PlayerTab",
+          "function": "切换玩家标签",
+          "safe": true,
+          "auto_action": "skip",
+          "scanned": false
+        },
+        {
+          "class": "UIBattleRelicInfo_Button_Relic",
+          "function": "查看遗物详情",
+          "safe": true,
+          "auto_action": "skip",
+          "scanned": false
+        }
+      ],
+      "recommended_action": "skip",
+      "notes": "遗物信息弹窗，纯UI查看"
+    },
+    "AssistVoteWindow": {
+      "rpc": "VoteC2SRPC",
+      "also_uses_rpc": [
+        "VoteSelectC2SRPC"
+      ],
+      "buttons": [
+        {
+          "class": "UIAssistVote_Button_Relic",
+          "function": "投票选择遗物",
+          "safe": false,
+          "auto_action": "random_vote",
+          "scanned": false
+        }
+      ],
+      "recommended_action": "random_vote_or_skip",
+      "notes": "辅助投票窗口，投票选择"
+    },
+    "BattleHintWindow": {
+      "rpc": null,
+      "buttons": [
+        {
+          "class": "UIButton_Next",
+          "function": "确认提示",
+          "safe": true,
+          "auto_action": "auto_close",
+          "scanned": false
+        }
+      ],
+      "recommended_action": "auto_close",
+      "notes": "战斗提示窗口，纯UI"
+    },
+    "DisplayCardWindow": {
+      "rpc": null,
+      "buttons": [],
+      "recommended_action": "auto_close",
+      "notes": "卡牌展示窗口，纯UI"
+    },
+    "MessageBoxWindow": {
+      "rpc": null,
+      "buttons": [
+        {
+          "class": "UIMessageBox_Button_DoubleStatus",
+          "function": "确认/取消双按钮",
+          "safe": true,
+          "auto_action": "auto_confirm",
+          "scanned": false
+        }
+      ],
+      "recommended_action": "auto_confirm",
+      "notes": "通用消息弹窗"
+    },
+    "ATMWindow": {
+      "rpc": null,
+      "possible_rpc": [
+        "TransferStarDiscC2SRPC"
+      ],
+      "buttons": [
+        {
+          "class": "UIATM_Button_RoleHeadshot",
+          "function": "选择转账目标",
+          "safe": false,
+          "auto_action": "skip",
+          "scanned": false
+        }
+      ],
+      "recommended_action": "close",
+      "notes": "ATM转账窗口，谨慎操作"
+    },
+    "SkillWindow": {
+      "rpc": null,
+      "buttons": [],
+      "recommended_action": "auto_close",
+      "notes": "技能详情窗口，纯UI展示"
+    },
+    "RelicWindow": {
+      "rpc": null,
+      "buttons": [
+        {
+          "class": "UIRelic_Button_Item",
+          "function": "遗物列表项",
+          "safe": true,
+          "auto_action": "skip",
+          "scanned": false
+        }
+      ],
+      "recommended_action": "auto_close",
+      "notes": "遗物详情窗口，纯UI展示"
+    },
+    "BattleSelectMonsterWindow": {
+      "rpc": null,
+      "possible_rpc": [
+        "LandChoiceTargetC2SRPC"
+      ],
+      "buttons": [
+        {
+          "class": "UIButton_MonsterItem",
+          "function": "选择怪物目标",
+          "safe": false,
+          "auto_action": "auto_pick",
+          "scanned": false
+        }
+      ],
+      "recommended_action": "auto_pick_first",
+      "notes": "选择怪物目标窗口"
+    },
+    "ExpressionWindow": {
+      "rpc": null,
+      "buttons": [
+        {
+          "class": "UIExpression_Button_ListExpression",
+          "function": "表情列表",
+          "safe": true,
+          "auto_action": "skip",
+          "scanned": false
+        },
+        {
+          "class": "UIExpression_Button_MapChat",
+          "function": "地图聊天",
+          "safe": true,
+          "auto_action": "skip",
+          "scanned": false
+        },
+        {
+          "class": "UIExpression_Button_QuickReply",
+          "function": "快捷回复",
+          "safe": true,
+          "auto_action": "skip",
+          "scanned": false
+        }
+      ],
+      "recommended_action": "skip",
+      "notes": "表情/聊天窗口，纯UI"
+    },
+    "SettingInBattleWindow": {
+      "rpc": null,
+      "buttons": [
+        {
+          "class": "UISettingInBattle_Button_LockExpression",
+          "function": "锁定表情",
+          "safe": true,
+          "auto_action": "skip",
+          "scanned": false
+        },
+        {
+          "class": "UISetting_Button_Operate",
+          "function": "设置操作",
+          "safe": true,
+          "auto_action": "skip",
+          "scanned": false
+        }
+      ],
+      "recommended_action": "close",
+      "notes": "战斗中设置窗口"
+    }
+  },
+  "generic_buttons": {
+    "description": "通用按钮类，出现在多个Window中",
+    "buttons": [
+      {
+        "class": "GButton",
+        "function": "FairyGUI通用按钮基类，功能由父组件决定",
+        "ns": "FairyGUI",
+        "note": "需通过path/title判断具体功能"
+      },
+      {
+        "class": "UIButton_Next",
+        "function": "确认/下一步按钮",
+        "used_in": [
+          "UpgradeWindow",
+          "LandHospitalWindow",
+          "LandEventWindow",
+          "LandPrayWindow",
+          "BoxPropWindow",
+          "RewardWindow",
+          "BattleHintWindow"
+        ]
+      },
+      {
+        "class": "UIButton_Next2",
+        "function": "确认/下一步按钮(变体)",
+        "used_in": [
+          "UpgradeWindow",
+          "LandHospitalWindow",
+          "RewardWindow"
+        ]
+      },
+      {
+        "class": "UIButton_Way",
+        "function": "路径/方式选择按钮",
+        "used_in": [
+          "multiple"
+        ]
+      },
+      {
+        "class": "UIButton_MoveArrow",
+        "function": "移动方向箭头",
+        "used_in": [
+          "UIHandCardPanel",
+          "map_navigation"
+        ]
+      },
+      {
+        "class": "UIButton_Buff",
+        "function": "Buff展示按钮",
+        "used_in": [
+          "UIBattleInfoPanel"
+        ]
+      },
+      {
+        "class": "UIButton_Grip",
+        "function": "拖拽手柄按钮",
+        "used_in": [
+          "multiple_info_windows"
+        ]
+      },
+      {
+        "class": "UIButton_Collect",
+        "function": "收藏/收集按钮",
+        "used_in": [
+          "multiple"
+        ]
+      },
+      {
+        "class": "UIButton_MapEventSelect",
+        "function": "地图事件选择",
+        "used_in": [
+          "map_navigation"
+        ]
+      },
+      {
+        "class": "UIButton_MapInfoSelect",
+        "function": "地图信息选择",
+        "used_in": [
+          "map_navigation"
+        ]
+      }
+    ]
+  },
+  "non_battle_buttons_excluded": {
+    "description": "以下按钮类属于非对局场景(大厅、商城、活动等)，不参与自动化",
+    "categories": {
+      "lobby_home": [
+        "UIHome_Button_GameStart",
+        "UIHome_Button_Activity",
+        "UIHome_Button_Gacha",
+        "UIHome_Button_Mall",
+        "UIHome_Button_PlayerInfo",
+        "UIHome_Button_Task",
+        "UIHome_Button_Banner",
+        "UIHome_Button_CardBook",
+        "UIHome_Button_Crowdfunding",
+        "UIHome_Button_SpecialActivity",
+        "UIHome_Button_WitchWeaponCollaborate",
+        "UIHome_Button_ActivityBannerItem"
+      ],
+      "room_match": [
+        "UIRoomWait_Button_Ready",
+        "UIRoomHero_Button_SelectHero_2",
+        "UIRoomHero_Button_SelectSkin",
+        "UIRoomHero_Button_Sure",
+        "UIRoomHero_Button_DetailInfo",
+        "UIRoomList_Button_GameMode",
+        "UIRoomList_Button_QuickJoin",
+        "UIRoomList_Item_Button",
+        "UIRoomFilter_Button_Difficulty",
+        "UIRoomSetting_Button_Setting",
+        "UIRoomSetting_Button_Info",
+        "UIMatch_Button_DifficultyItem",
+        "UIMatch_Button_PVPModeItem",
+        "UIMatch_Button_PVEMapItem",
+        "UIMatch_Button_PVPMapItem",
+        "UIMatch_Button_Room",
+        "UIButton_RoomMapCard"
+      ],
+      "store_purchase": [
+        "UIStore_Button_SkinItem",
+        "UIStore_Button_SkinTab",
+        "UIStore_Button_Way",
+        "UIStore_Button_Recommend",
+        "UIStore_Button_RecommendItem",
+        "UIStore_Button_Purchase7DayGift",
+        "UIStore_Button_PurchaseMonthCard",
+        "UIStore_Button_Reward7DayGift",
+        "UIStore_Button_FinishStatus",
+        "UIStore_Button_GetStatus",
+        "UIStore_Button_GetStatusBottom",
+        "UIStore_GoodsList_SwitchTabButton",
+        "UIStore_SwitchTab_Button",
+        "UINGOStore_Button_Purchase",
+        "UIProductRecommendation_Button_GoodsItem",
+        "UIProductRecommendation_Button_ExchangeStore",
+        "UIProductRecommendation_Button_GiftpackBanner",
+        "UIProductRecommendation_Button_RechargeStore",
+        "UIShopping_Button_Gacha",
+        "UIShopping_Button_Mall"
+      ],
+      "gacha": [
+        "UICacha_Button_Gacha",
+        "UICacha_Button_Gacha2",
+        "UICacha_Button_Pool",
+        "UICacha_Button_RookieGacha",
+        "UICacha_Button_RookieReward",
+        "UICachaReward_Button_Receive",
+        "UIGacha_Button_ResultItem",
+        "UIGacha_Button_SliderItem",
+        "UIGacha_Button_TabSelect",
+        "UIGachaInfo_Button_PropItem"
+      ],
+      "activity": [
+        "UIActivityFree_Button",
+        "UIActivityReceive_Button",
+        "UIActivityPopup_Button_Adv",
+        "UIActivity_Button_TaskStatus",
+        "UIActivity_Button_Toggle",
+        "UIActivity_Button_Type1_Tab",
+        "UIActivity_Button_Type2_Reward",
+        "UIActivity_Button_Type2_Scratchoff",
+        "UIActivity_Button_Type2_Scratchoff_ListItem",
+        "UIActivity_Button_Type2_Scratchoff_NextPage",
+        "UIActivity_Button_Type3_AddGift",
+        "UIActivity_Button_Type3_Gacha",
+        "UIActivity_Button_Type3_Item",
+        "UIActivity_Button_Type3_Tab",
+        "UIActivity_Button_Type3_TaskStatus"
+      ],
+      "hero_fashion": [
+        "UIHero_Button_Hero",
+        "UIHero_Button_SkinItem",
+        "UIHero_Button_BreakThrough",
+        "UIHero_Button_FileSelect",
+        "UIHero_Button_GiftItem",
+        "UIHero_Button_GiftWay",
+        "UIHero_Button_SwitchMode",
+        "UIHero_Button_UpgradeOperate",
+        "UIFashion_Button_Video",
+        "UIFashion_Button_Change",
+        "UIFashion_Button_PropItem"
+      ],
+      "account_social": [
+        "UIAccountInfo_Button_Grip",
+        "UIAccountInfo_Button_Hero",
+        "UIAccountInfo_Button_RankInfo",
+        "UIAccountInfo_Button_SelectAchieve",
+        "UIAccountInfo_Button_ShowAchieve",
+        "UIAccountInfo_Button_Toggle",
+        "UIAccount_Button_FightData",
+        "UIAccount_Button_Operator",
+        "UIFriend_Button_FriendLabel",
+        "UIFriend_Button_Tab",
+        "UIInviteFriend_Button_Grip",
+        "UIInviteFriend_Button_PlayerItem",
+        "UIChat_Button_Session"
+      ],
+      "login_system": [
+        "UILogin_Button_AgeTip",
+        "UILogin_Button_CleanCache",
+        "UILogin_Button_IcpLink",
+        "UILogin_Button_ShowNotice",
+        "UISignIn_Button_SignIn",
+        "UISignInModuleOne_Button_Reward",
+        "UIStory_Button_Skip",
+        "UITutorial_Button_Sure"
+      ],
+      "misc": [
+        "UIGM_Button_Operate",
+        "UIGM_Button_Server",
+        "UIGM_Button_Single",
+        "UIGM_Button_SingleContent",
+        "UIBottomMenu_Button_Function",
+        "UIBottomMenu_Button_Token",
+        "UIGameLibrary_Button_Card",
+        "UIGameLibrary_Button_RelicItem",
+        "UINotice_Button_Grip",
+        "UIInfo_Button_Grip",
+        "UIDiscount_Button_Coupons"
+      ]
+    }
+  },
+  "automation_priority": {
+    "description": "按自动化优先级分类",
+    "critical_must_handle": [
+      {
+        "window": "FightWindow",
+        "reason": "战斗选择有超时，不处理会被动防御"
+      },
+      {
+        "window": "LoseCardWindow",
+        "reason": "弃牌选择有超时"
+      },
+      {
+        "window": "UpgradeWindow",
+        "reason": "升级选择可能有超时"
+      },
+      {
+        "window": "LandEventWindow",
+        "reason": "事件选择可能有超时"
+      }
+    ],
+    "high_auto_closeable": [
+      {
+        "window": "BattleSettlementPanel",
+        "reason": "结算确认，阻塞游戏流程"
+      },
+      {
+        "window": "RewardWindow",
+        "reason": "奖励确认，阻塞游戏流程"
+      },
+      {
+        "window": "BoxPropWindow",
+        "reason": "道具展示，阻塞游戏流程"
+      },
+      {
+        "window": "BattleHintWindow",
+        "reason": "提示确认，阻塞游戏流程"
+      },
+      {
+        "window": "MessageBoxWindow",
+        "reason": "消息确认，阻塞游戏流程"
+      },
+      {
+        "window": "LandHospitalWindow",
+        "reason": "医院确认，阻塞游戏流程"
+      }
+    ],
+    "medium_needs_strategy": [
+      {
+        "window": "LandShopWindow",
+        "reason": "购买决策需要策略"
+      },
+      {
+        "window": "CardWindow",
+        "reason": "使用卡牌需要策略"
+      },
+      {
+        "window": "LandVendorWindow",
+        "reason": "购买卡牌需要策略"
+      },
+      {
+        "window": "LandRelicWindow",
+        "reason": "购买遗物需要策略"
+      },
+      {
+        "window": "LandFillingStationWindow",
+        "reason": "停下/继续需要策略"
+      },
+      {
+        "window": "LandPursuitWindow",
+        "reason": "追击目标需要策略"
+      },
+      {
+        "window": "LandBatteryWindow",
+        "reason": "炮台目标需要策略"
+      }
+    ],
+    "low_random_ok": [
+      {
+        "window": "LandLotteryWindow",
+        "reason": "彩票随机选即可"
+      },
+      {
+        "window": "LandGambleWindow",
+        "reason": "赌博随机选即可"
+      },
+      {
+        "window": "LandDivinationWindow",
+        "reason": "占卜随机选即可"
+      },
+      {
+        "window": "LandRollGoldWindow",
+        "reason": "掷金币自动掷即可"
+      },
+      {
+        "window": "LandPrayWindow",
+        "reason": "祈祷自动确认即可"
+      }
+    ]
+  }
+}

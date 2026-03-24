@@ -1,0 +1,99 @@
+{
+  "login_screen": {
+    "UILoginPanel": {
+      "description": "登录界面",
+      "children": {
+        "[7]": {
+          "class": "UILogin_Com_Interaction_CN",
+          "description": "交互区域",
+          "children": {
+            "[1]": {"class": "GButton", "title": "开始游戏", "action": "进入大厅"},
+            "[9]": {"class": "GButton", "title": "", "description": "未知按钮（3个Image子节点）"},
+            "[10]": {"class": "UILogin_Button_ShowNotice", "action": "显示公告"},
+            "[11]": {"class": "UILogin_Button_CleanCache", "action": "清除缓存"},
+            "[14]": {"class": "UILogin_Button_IcpLink", "action": "ICP备案链接"},
+            "[15]": {"class": "UILogin_Button_AgeTip", "action": "适龄提示"}
+          }
+        }
+      }
+    },
+    "NoticeWindow": {
+      "description": "公告弹窗",
+      "children": {
+        "[0]": {
+          "class": "UINoticeWindow",
+          "children": {
+            "[4]": {"class": "GList", "description": "公告列表（11条）", "item_class": "GButton"},
+            "[6]": {"class": "GButton", "title": "", "action": "关闭公告（X按钮）", "note": "3个Image子节点=X图标"}
+          }
+        }
+      }
+    }
+  },
+  "lobby": {
+    "panels": ["UIBackgroundPanel", "UIHomePanel", "UIBottomMenuPanel"],
+    "note": "登录成功后显示三个面板"
+  },
+  "battle": {
+    "UIHandCardPanel": {
+      "[0]": {"class": "UIHandCard_Com_CardHotZone", "action": "卡牌热区"},
+      "[1]": {"note": "子[0]是卡牌按钮 UIHandCard_Button_Card"},
+      "[2]": {"class": "GButton", "action": "移动/掷骰子按钮"},
+      "[3]": {"note": "子[0]是技能按钮 UIHandCard_Button_Skill"},
+      "[4]": {"class": "GTextField", "action": "文本显示"},
+      "[5]": {"class": "GGroup"}
+    },
+    "FightWindow": {
+      "note": "战斗窗口，包含遭遇选择和战斗选择两种状态",
+      "encounter": {
+        "UIFight_LaunchPK": {
+          "[6]": {"class": "GButton", "title": "攻击!", "action": "发起攻击（触发RPC）"},
+          "[7]": {"class": "GButton", "title": "放过", "action": "放过对手（触发RPC）"}
+        }
+      },
+      "combat": {
+        "buttons": ["防御", "闪避"],
+        "note": "超时自动防御。EventListener.Call触发RPC 11018，暂不点击"
+      }
+    },
+    "LandShopWindow": {
+      "UILandShop_Button_Card": "卡牌选择按钮",
+      "UILandShop_Button_Buy": "购买按钮",
+      "返回_button": "返回按钮（安全，不触发RPC）"
+    },
+    "LandLotteryWindow": {
+      "UILandLottery_Button_LotteryNumb": "号码选择",
+      "UILandLottery_Button_Lottery_Selection": "确认选择"
+    },
+    "UpgradeWindow": {
+      "note": "升级/拿星面板，按钮在深层嵌套中"
+    },
+    "LandEventWindow": {
+      "note": "事件窗口，点击任意按钮关闭（安全）"
+    },
+    "BattleSettlementPanel": {
+      "UIBattleSettlement_Button_Sure": "确认退出结算",
+      "UIBattleSettlement_Button_Praise": "点赞",
+      "note": "搜索title含'确' or class含'Sure'的按钮"
+    },
+    "CardWindow": {
+      "UICardWin_Com_UseCard": "使用卡牌区",
+      "确定_button": "确认使用",
+      "取消使用_button": "取消使用（安全默认选项）"
+    },
+    "LoseCardWindow": {
+      "note": "弃牌窗口，按钮对应手牌顺序"
+    },
+    "LandGambleWindow": {
+      "step1": "选择奇/偶（UILandGamble_Button_Even/dd）",
+      "step2": "掷骰子",
+      "note": "两步操作"
+    },
+    "LandFillingStationWindow": {
+      "UILandFillingStation_Button_Stop": "停止/继续按钮"
+    },
+    "MessageBoxWindow": {
+      "note": "错误提示框（如11018），已加入IGNORE不处理"
+    }
+  }
+}

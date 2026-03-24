@@ -1,0 +1,1287 @@
+{
+  "_meta": {
+    "description": "Astral Party UI class map - extracted from game_classes.json (UI namespace) and runtime analysis",
+    "game_version": "3.0.1",
+    "ui_framework": "FairyGUI",
+    "total_ui_classes": 1042,
+    "scene_types": {
+      "0": "None",
+      "1": "Login",
+      "2": "Home",
+      "3": "Battle",
+      "4": "SelectMusic",
+      "5": "Music",
+      "6": "SinglePlayer"
+    },
+    "coordinate_system": {
+      "design_resolution": "1920x1080",
+      "root": "FairyGUI.GRoot",
+      "traversal": "GRoot -> GComponent.GetChildAt(index) -> GObject properties"
+    }
+  },
+
+  "lobby": {
+    "LoginPanel": {
+      "ui_class": "UILoginPanel",
+      "scene": "Login",
+      "purpose": "登录界面",
+      "children": {
+        "UILogin_Com_Interaction_CN": {"type": "component", "desc": "国服登录交互区"},
+        "UILogin_Com_Interaction_JP": {"type": "component", "desc": "日服登录交互区"},
+        "UILogin_Button_AgeTip": {"type": "button", "desc": "年龄提示"},
+        "UILogin_Button_CleanCache": {"type": "button", "desc": "清除缓存"},
+        "UILogin_Button_ShowNotice": {"type": "button", "desc": "显示公告"},
+        "UILogin_ChooseServer_popup": {"type": "popup", "desc": "选择服务器"}
+      },
+      "notes": "UILogin_Com_Interaction_CN child[1] = GButton '开始游戏' -> enter_lobby"
+    },
+    "HomePanel": {
+      "ui_class": "UIHomePanel",
+      "scene": "Home",
+      "purpose": "主界面/大厅",
+      "children": {
+        "UIHome_Button_GameStart": {"type": "button", "title": "开始游戏", "action": "open_match_entrance", "relative_pos": [0.50, 0.55]},
+        "UIHome_Button_Activity": {"type": "button", "desc": "活动入口"},
+        "UIHome_Button_Gacha": {"type": "button", "desc": "抽卡入口"},
+        "UIHome_Button_Mall": {"type": "button", "desc": "商城入口"},
+        "UIHome_Button_PlayerInfo": {"type": "button", "desc": "玩家信息"},
+        "UIHome_Button_Task": {"type": "button", "desc": "任务入口"},
+        "UIHome_Button_CardBook": {"type": "button", "desc": "卡牌图鉴"},
+        "UIHome_Button_Crowdfunding": {"type": "button", "desc": "众筹"},
+        "UIHome_Button_SpecialActivity": {"type": "button", "desc": "特殊活动"},
+        "UIHome_Button_WitchWeaponCollaborate": {"type": "button", "desc": "联动入口"},
+        "UIHome_Button_Banner": {"type": "button", "desc": "横幅广告"},
+        "UIHome_Button_ActivityBannerItem": {"type": "button", "desc": "活动横幅项"},
+        "UIHome_Com_BattlePass": {"type": "component", "desc": "战令信息"},
+        "UIHome_Com_Banner": {"type": "component", "desc": "轮播横幅"},
+        "UIHome_Com_ActivityBanner": {"type": "component", "desc": "活动横幅"}
+      }
+    },
+    "BottomMenuPanel": {
+      "ui_class": "UIBottomMenuPanel",
+      "scene": "Home",
+      "purpose": "底部菜单栏",
+      "children": {
+        "UIBottomMenu_Button_Function": {"type": "button", "desc": "功能按钮"},
+        "UIBottomMenu_Button_Token": {"type": "button", "desc": "代币/货币按钮"}
+      },
+      "methods_from_bmp": {
+        "ExecuteOperate": {"params": 1, "desc": "执行操作 - 底部菜单点击入口"},
+        "RefreshToken": {"params": 0, "desc": "刷新代币显示"},
+        "UpdateFriendFunc": {"params": 1, "desc": "更新好友功能"},
+        "ChangeShowStatus": {"params": 1, "desc": "切换显示状态"},
+        "OnClickToken": {"params": 2, "desc": "点击代币"},
+        "RendererFunction": {"params": 2, "desc": "渲染功能项"},
+        "LevelChange": {"params": 0, "desc": "等级变化处理"}
+      }
+    },
+    "BackgroundPanel": {
+      "ui_class": "UIBackgroundPanel",
+      "scene": "Home",
+      "purpose": "背景面板"
+    }
+  },
+
+  "navigation": {
+    "MatchEntrancePanel": {
+      "ui_class": "UIMatchEntrancePanel",
+      "scene": "Home",
+      "purpose": "匹配入口 - 选择游戏模式",
+      "children": {
+        "UIMatch_Button_Room": {"type": "button", "title": "房间大厅", "action": "open_room_list", "relative_pos": [0.50, 0.35]}
+      },
+      "navigation_targets": {
+        "pvp_match": {"desc": "PVP标准对战", "relative_pos": [0.35, 0.45]},
+        "pve_coop": {"desc": "PVE合作挑战", "relative_pos": [0.15, 0.45]},
+        "custom_room": {"desc": "房间大厅", "relative_pos": [0.50, 0.35]}
+      }
+    },
+    "MatchPanel": {
+      "ui_class": "UIMatchPanel",
+      "scene": "Home",
+      "purpose": "匹配设置 - 选择地图和难度",
+      "children": {
+        "UIMatch_Button_PVPModeItem": {"type": "button", "desc": "PVP模式选项"},
+        "UIMatch_Button_PVPMapItem": {"type": "button", "desc": "PVP地图选项"},
+        "UIMatch_Button_PVEMapItem": {"type": "button", "desc": "PVE地图选项"},
+        "UIMatch_Button_DifficultyItem": {"type": "button", "desc": "难度选项"},
+        "UIMatch_Com_MapItem": {"type": "component", "desc": "地图信息"},
+        "UIMatch_Com_MapBanner": {"type": "component", "desc": "地图横幅"},
+        "UIMatch_Com_MapMonsterItem": {"type": "component", "desc": "地图怪物信息"}
+      }
+    },
+    "SoloLevelPanel": {
+      "ui_class": "UISoloLevelPanel",
+      "scene": "Home",
+      "purpose": "单人模式入口",
+      "children": {
+        "UISoloLevel_Button_Basic": {"type": "button", "title": "基础模式"},
+        "UISoloLevel_Button_Training": {"type": "button", "title": "练习模式"},
+        "UISoloLevel_Button_ToDevelop": {"type": "button", "title": "待开发"}
+      }
+    },
+    "RoomListPanel": {
+      "ui_class": "UIRoomListPanel",
+      "scene": "Home",
+      "purpose": "房间列表",
+      "children": {
+        "UIRoomList_Button_GameMode": {"type": "button", "desc": "游戏模式筛选"},
+        "UIRoomList_Button_QuickJoin": {"type": "button", "title": "快速加入"},
+        "UIRoomList_Com_Difficulty": {"type": "component", "desc": "难度信息"},
+        "UIRoomList_Com_GoldCount": {"type": "component", "desc": "金币数量"},
+        "UIRoomList_Com_Speed": {"type": "component", "desc": "速度信息"},
+        "UIRoomList_Com_ThinkTime": {"type": "component", "desc": "思考时间"},
+        "UIRoomList_Item_Button": {"type": "button", "desc": "房间列表项"}
+      }
+    },
+    "RoomWaitPanel": {
+      "ui_class": "UIRoomWaitPanel",
+      "scene": "Home",
+      "purpose": "房间等待界面",
+      "children": {
+        "UIRoomWait_Button_Ready": {"type": "button", "title": "准备", "action": "ready_up", "relative_pos": [0.85, 0.90]},
+        "UIRoomWait_Com_SpeedDown": {"type": "component", "desc": "减速"},
+        "UIRoomWait_Com_SpeedUp": {"type": "component", "desc": "加速"}
+      },
+      "common_components": {
+        "UICom_RoomPlayer": {"desc": "房间玩家信息"},
+        "UICom_RoomSetting": {"desc": "房间设置"},
+        "UICom_CreateRoom": {"desc": "创建房间组件"},
+        "UIRoomPlayer_Com_PlayerLabel": {"desc": "玩家标签"},
+        "UIRoomPlayer_Com_FriendStatus": {"desc": "好友状态"},
+        "UIRoomPlayer_Com_MasterMenu": {"desc": "房主菜单"},
+        "UIRoomPlayer_Com_ShortChat": {"desc": "快捷聊天"},
+        "UIRoomSetting_Button_Setting": {"desc": "设置按钮"},
+        "UIRoomSetting_Com_SetItem": {"desc": "设置项"},
+        "UIRoomSetting_Com_SetItem_GameSpeed": {"desc": "游戏速度设置"},
+        "UIRoomSetting_Com_SetItem_ThinkTime": {"desc": "思考时间设置"},
+        "UIRoomSetting_Com_SetItem_Upgrade": {"desc": "升级设置"},
+        "UIRoomSetting_Com_DifficultyExplain": {"desc": "难度说明"}
+      }
+    },
+    "RoomHeroPanel": {
+      "ui_class": "UIRoomHeroPanel",
+      "scene": "Home",
+      "purpose": "英雄选择界面",
+      "children": {
+        "UIRoomHero_Button_SelectHero_2": {"type": "button", "desc": "选择英雄"},
+        "UIRoomHero_Button_SelectSkin": {"type": "button", "desc": "选择皮肤"},
+        "UIRoomHero_Button_DetailInfo": {"type": "button", "desc": "详细信息"},
+        "UIRoomHero_Button_Sure": {"type": "button", "title": "确定", "action": "confirm_hero", "relative_pos": [0.50, 0.90]},
+        "UIRoomHero_Com_Player": {"type": "component", "desc": "玩家信息"},
+        "UIRoomHero_Com_SelectHero": {"type": "component", "desc": "英雄选择列表"},
+        "UIRoomHero_Com_Skill": {"type": "component", "desc": "技能信息"},
+        "UIRoomHero_Com_SkinItem": {"type": "component", "desc": "皮肤项"}
+      }
+    },
+    "MatchInfoWindow": {
+      "ui_class": "UIMatchInfoWindow",
+      "purpose": "匹配信息窗口"
+    },
+    "MatchSuccessWindow": {
+      "ui_class": "UIMatchSuccessWindow",
+      "purpose": "匹配成功窗口",
+      "children": {
+        "UIMatchSuccess_Com_MapBanner": {"type": "component", "desc": "地图横幅"}
+      }
+    },
+    "RoomFilterWindow": {
+      "ui_class": "UIRoomFilterWindow",
+      "purpose": "房间筛选器",
+      "children": {
+        "UIRoomFilter_Button_Difficulty": {"type": "button", "desc": "难度筛选"}
+      }
+    }
+  },
+
+  "battle_hud": {
+    "BattleInfoPanel": {
+      "ui_class": "UIBattleInfoPanel",
+      "scene": "Battle",
+      "purpose": "战斗HUD - 玩家信息、小地图、进度条",
+      "always_visible": true,
+      "children": {
+        "UIBattleInfo_Button_PlayerInfo": {"type": "button", "desc": "玩家详细信息"},
+        "UIBattleInfo_Com_Player": {"type": "component", "desc": "玩家面板"},
+        "UIBattleInfo_Com_MiniMap_Icon": {"type": "component", "desc": "小地图图标"},
+        "UIBattleInfo_Com_Minimap": {"type": "component", "desc": "小地图"},
+        "UIBattleInfo_Com_MiniMap_Land": {"type": "component", "desc": "小地图地块"},
+        "UIBattleInfo_Com_PVEProgress": {"type": "component", "desc": "PVE进度条"},
+        "UIBattleInfo_Com_MapChat": {"type": "component", "desc": "地图聊天"},
+        "UIBattleInfo_Com_MapInfo": {"type": "component", "desc": "地图信息"},
+        "UIBattleInfo_Com_LandTip": {"type": "component", "desc": "地块提示"},
+        "UIBattleInfo_Com_UpgradeTips": {"type": "component", "desc": "升级提示"},
+        "UIBattleInfo_Com_PlayerContainer": {"type": "component", "desc": "玩家容器"},
+        "UIBattleInfo_Com_CampaignTask": {"type": "component", "desc": "战役任务"},
+        "UIBattleInfo_Com_Asymmetrical": {"type": "component", "desc": "非对称模式信息"},
+        "UIBattleInfo_Button_Victory": {"type": "button", "desc": "胜利信息"},
+        "UIBattleInfo_Button_MapChat": {"type": "button", "desc": "地图聊天按钮"},
+        "UIBattleInfo_Button_PVEProgress": {"type": "button", "desc": "PVE进度按钮"}
+      }
+    },
+    "HandCardPanel": {
+      "ui_class": "UIHandCardPanel",
+      "scene": "Battle",
+      "purpose": "手牌面板 - 移动/技能/卡牌按钮",
+      "always_visible": true,
+      "children_by_index": {
+        "1": {"class": "component", "desc": "卡牌区域", "children": {
+          "0": {"class": "UIHandCard_Button_Card", "desc": "使用卡牌按钮"}
+        }},
+        "2": {"class": "button", "desc": "移动/骰子按钮 (GO GO GO)", "relative_pos": [0.89, 0.88]},
+        "3": {"class": "component", "desc": "技能区域", "children": {
+          "0": {"class": "UIHandCard_Button_Skill", "desc": "发动技能按钮", "relative_pos": [0.80, 0.84]}
+        }}
+      },
+      "related_classes": {
+        "UIHandCard_Button_Card": {"type": "button", "desc": "卡牌按钮"},
+        "UIHandCard_Button_Skill": {"type": "button", "desc": "技能按钮"},
+        "UIHandCard_Com_CardHotZone": {"type": "component", "desc": "卡牌热区"},
+        "UIHandCard_Com_Skill": {"type": "component", "desc": "技能组件"}
+      }
+    }
+  },
+
+  "battle_windows": {
+    "FightWindow": {
+      "ui_class": "UIFightWindow",
+      "scene": "Battle",
+      "purpose": "战斗窗口 - 攻击/防御/闪避选择",
+      "sends_rpc": true,
+      "rpc": "BattleChoiceC2S",
+      "phase": "combat",
+      "children": {
+        "UIFight_Button_Dodge": {"type": "button", "title": "闪避", "relative_pos": [0.60, 0.55]},
+        "UIFight_Card": {"type": "component", "desc": "战斗卡牌"},
+        "UIFight_Com_Attacker": {"type": "component", "desc": "攻击者信息"},
+        "UIFight_Com_Defenser": {"type": "component", "desc": "防御者信息"},
+        "UIFight_Com_Cost": {"type": "component", "desc": "费用信息"},
+        "UIFight_Com_Point": {"type": "component", "desc": "点数信息"},
+        "UIFight_Com_ReadyLabel": {"type": "component", "desc": "准备标签"},
+        "UIFight_Com_CardHotZone": {"type": "component", "desc": "卡牌热区"},
+        "UIFight_LaunchPK": {"type": "component", "desc": "发起PK"},
+        "UIFight_Show": {"type": "component", "desc": "展示区"},
+        "UIFight_PlayerInfo": {"type": "component", "desc": "玩家信息"}
+      },
+      "defend_pos": [0.40, 0.55],
+      "evade_pos": [0.60, 0.55]
+    },
+    "LandShopWindow": {
+      "ui_class": "UILandShopWindow",
+      "scene": "Battle",
+      "purpose": "地图商店 - 购买卡牌",
+      "sends_rpc": false,
+      "phase": "shop",
+      "children": {
+        "UILandShop_Button_Buy": {"type": "button", "title": "购买"},
+        "UILandShop_Button_Card": {"type": "button", "desc": "卡牌选择"},
+        "UILandShop_BG": {"type": "component", "desc": "背景"}
+      },
+      "notes": "可转移5星币给队友(PVE); 每张卡牌3星币"
+    },
+    "CardWindow": {
+      "ui_class": "UICardWindow",
+      "scene": "Battle",
+      "purpose": "卡牌使用窗口 - 选择目标",
+      "sends_rpc": true,
+      "rpc": "UseEffectCardC2S",
+      "phase": "card_select",
+      "children": {
+        "UICardWin_Com_CardResult": {"type": "component", "desc": "卡牌效果预览"},
+        "UICardWin_Com_Loader": {"type": "component", "desc": "加载器"},
+        "UICardWin_Com_UseCard": {"type": "component", "desc": "使用卡牌"},
+        "UICard_Button_DiceNumb": {"type": "button", "desc": "骰子数字"},
+        "UICard_Com_ChooseCard": {"type": "component", "desc": "选择卡牌"}
+      }
+    },
+    "UpgradeWindow": {
+      "ui_class": "UIUpgradeWindow",
+      "scene": "Battle",
+      "purpose": "升星窗口 - 到达保障点时升级星级",
+      "sends_rpc": true,
+      "rpc": "StopOrContinueC2S",
+      "phase": "upgrade",
+      "children": {
+        "UIUpgrade_Com_Character": {"type": "component", "desc": "角色信息"},
+        "UIUpgrade_Com_PVELabel": {"type": "component", "desc": "PVE标签"},
+        "UIUpgrade_Com_PVPLabel": {"type": "component", "desc": "PVP标签"},
+        "UIUpgrade_Com_Star": {"type": "component", "desc": "星级信息"}
+      },
+      "upgrade_costs": {
+        "pvp": {"1star": 20, "2star": 40, "3star": 60},
+        "pve": {"1star": 15, "2star": 20, "3star": 25}
+      }
+    },
+    "LandLotteryWindow": {
+      "ui_class": "UILandLotteryWindow",
+      "scene": "Battle",
+      "purpose": "抽奖窗口 - 选号",
+      "sends_rpc": true,
+      "rpc": "LotteryChoiceC2S",
+      "phase": "lottery",
+      "children": {
+        "UILandLottery_Button_LotteryNumb": {"type": "button", "desc": "彩票号码"},
+        "UILandLottery_Button_Lottery_Selection": {"type": "button", "desc": "彩票选择"},
+        "UILandLottery_Com_Cheer": {"type": "component", "desc": "欢呼"},
+        "UILandLottery_Com_Number": {"type": "component", "desc": "号码显示"},
+        "UILandLottery_Com_SelectLottery": {"type": "component", "desc": "选择彩票"},
+        "UILandLottery_Com_Turntable": {"type": "component", "desc": "转盘"}
+      }
+    },
+    "LandGambleWindow": {
+      "ui_class": "UILandGambleWindow",
+      "scene": "Battle",
+      "purpose": "赌博窗口 - 猜大小",
+      "sends_rpc": true,
+      "rpc": "GambleThrowDicC2S",
+      "phase": "gamble",
+      "children": {
+        "UILandGamble_Button_dd": {"type": "button", "desc": "选项1"},
+        "UILandGamble_Button_Even": {"type": "button", "desc": "偶数"},
+        "UILandGamble_Player": {"type": "component", "desc": "玩家信息"}
+      }
+    },
+    "LandDivinationWindow": {
+      "ui_class": "UILandDivinationWindow",
+      "scene": "Battle",
+      "purpose": "占卜窗口",
+      "sends_rpc": true,
+      "rpc": "TriggerDivinationC2S",
+      "phase": "divination",
+      "children": {
+        "UILandDivination_Button_DivinationCard": {"type": "button", "desc": "占卜牌"},
+        "UILandDivination_Com_DivinationTarget": {"type": "component", "desc": "占卜目标"}
+      }
+    },
+    "LandEventWindow": {
+      "ui_class": "UILandEventWindow",
+      "scene": "Battle",
+      "purpose": "地块事件窗口",
+      "sends_rpc": true,
+      "rpc": "TriggerEventC2S",
+      "phase": "land_event",
+      "children": {
+        "UILandEvent_Button_Card": {"type": "button", "desc": "事件卡牌"},
+        "UILandEvent_Graph_Player": {"type": "component", "desc": "玩家图表"}
+      }
+    },
+    "LandHospitalWindow": {
+      "ui_class": "UILandHospitalWindow",
+      "scene": "Battle",
+      "purpose": "医院窗口 - 恢复2HP+免疫",
+      "sends_rpc": true,
+      "rpc": "TriggerHospitalC2S",
+      "phase": "hospital",
+      "children": {
+        "UILandHospital_Com_Content": {"type": "component", "desc": "医院内容"}
+      }
+    },
+    "LandPursuitWindow": {
+      "ui_class": "UILandPursuitWindow",
+      "scene": "Battle",
+      "purpose": "追击窗口 - 选择追击目标",
+      "sends_rpc": true,
+      "rpc": "PursuitC2S",
+      "phase": "pursuit",
+      "children": {
+        "UILandPursuit_Button_RoleHeadshot": {"type": "button", "desc": "角色头像选择"}
+      }
+    },
+    "LandBatteryWindow": {
+      "ui_class": "UILandBatteryWindow",
+      "scene": "Battle",
+      "purpose": "大炮窗口 - 选择目标造成2点伤害",
+      "sends_rpc": false,
+      "phase": "battery",
+      "children": {
+        "UILandBattery_Button_RoleHeadshot": {"type": "button", "desc": "角色头像选择"},
+        "UILandBattery_Com_BG": {"type": "component", "desc": "背景"}
+      }
+    },
+    "LandRollGoldWindow": {
+      "ui_class": "UILandRollGoldWindow",
+      "scene": "Battle",
+      "purpose": "摇金币窗口 - 意外之财(2-10金币)",
+      "sends_rpc": true,
+      "rpc": "RollGoldC2S",
+      "phase": "roll_gold",
+      "children": {
+        "UILandRollGold_Button_Gold": {"type": "button", "desc": "金币按钮"}
+      }
+    },
+    "LandVendorWindow": {
+      "ui_class": "UILandVendorWindow",
+      "scene": "Battle",
+      "purpose": "商人窗口",
+      "sends_rpc": false,
+      "phase": "vendor",
+      "children": {
+        "UILandVendor_Button_Sure": {"type": "button", "title": "确定"}
+      }
+    },
+    "LandFillingStationWindow": {
+      "ui_class": "UILandFillingStationWindow",
+      "scene": "Battle",
+      "purpose": "加油站/加速窗口",
+      "sends_rpc": false,
+      "phase": "filling_station",
+      "children": {
+        "UILandFillingStation_Button_Stop": {"type": "button", "title": "停止"}
+      }
+    },
+    "LandPrayWindow": {
+      "ui_class": "UILandPrayWindow",
+      "scene": "Battle",
+      "purpose": "祈祷窗口",
+      "sends_rpc": false,
+      "phase": "pray"
+    },
+    "LandRelicWindow": {
+      "ui_class": "UILandRelicWindow",
+      "scene": "Battle",
+      "purpose": "遗物选择窗口",
+      "sends_rpc": false,
+      "phase": "relic",
+      "children": {
+        "UILandRelic_Button_Sure": {"type": "button", "title": "确定"},
+        "UILandRelic_button_Rese": {"type": "button", "desc": "重置"},
+        "UILandRelic_button_Select": {"type": "button", "desc": "选择"}
+      }
+    },
+    "BattleSelectMonsterWindow": {
+      "ui_class": "UIBattleSelectMonsterWindow",
+      "scene": "Battle",
+      "purpose": "怪物突袭门 - 选择怪物战斗",
+      "sends_rpc": false,
+      "phase": "select_monster",
+      "children": {
+        "UIBattleMonster_Com_Arrow": {"type": "component", "desc": "箭头指示"}
+      }
+    },
+    "LoseCardWindow": {
+      "ui_class": "UILoseCardWindow",
+      "scene": "Battle",
+      "purpose": "失去卡牌窗口",
+      "sends_rpc": false,
+      "phase": "lose_card",
+      "children": {
+        "UILoseCard_Button_Large": {"type": "button", "desc": "大卡牌展示"}
+      }
+    },
+    "SkillWindow": {
+      "ui_class": "UISkillWindow",
+      "scene": "Battle",
+      "purpose": "技能目标选择窗口",
+      "sends_rpc": false,
+      "phase": "skill_target"
+    },
+    "BoxPropWindow": {
+      "ui_class": "UIBoxPropWindow",
+      "scene": "Battle",
+      "purpose": "宝箱/道具窗口",
+      "sends_rpc": false,
+      "phase": "box_prop",
+      "children": {
+        "UIBoxProp_Com_OpenChest": {"type": "component", "desc": "开启宝箱"},
+        "UIBoxProp_Com_GiftContent": {"type": "component", "desc": "礼物内容"}
+      }
+    },
+    "ATMWindow": {
+      "ui_class": "UIATMWindow",
+      "scene": "Battle",
+      "purpose": "ATM/星币转账窗口",
+      "sends_rpc": false,
+      "phase": "atm",
+      "children": {
+        "UIATM_Button_RoleHeadshot": {"type": "button", "desc": "角色头像选择"}
+      }
+    },
+    "AssistVoteWindow": {
+      "ui_class": "UIAssistVoteWindow",
+      "scene": "Battle",
+      "purpose": "协助投票窗口(PVE遗物投票)",
+      "sends_rpc": false,
+      "phase": "assist_vote",
+      "children": {
+        "UIAssistVote_Button_Relic": {"type": "button", "desc": "遗物选择"},
+        "UIAssistVote_Com_NPCInfo": {"type": "component", "desc": "NPC信息"},
+        "UIAssistVote_Com_RelicInfo": {"type": "component", "desc": "遗物信息"},
+        "UIAssistVote_Com_VoteItem": {"type": "component", "desc": "投票选项"}
+      }
+    },
+    "DisplayCardWindow": {
+      "ui_class": "UIDisplayCardWindow",
+      "scene": "Battle",
+      "purpose": "卡牌展示窗口"
+    },
+    "ExpressionWindow": {
+      "ui_class": "UIExpressionWindow",
+      "scene": "Battle",
+      "purpose": "表情/快捷回复窗口",
+      "children": {
+        "UIExpression_Button_ListExpression": {"type": "button", "desc": "表情列表"},
+        "UIExpression_Button_MapChat": {"type": "button", "desc": "地图聊天"},
+        "UIExpression_Button_QuickReply": {"type": "button", "desc": "快捷回复"},
+        "UIExpression_Button_ShortInfo_PC": {"type": "button", "desc": "PC快捷信息"},
+        "UIExpression_Button_ShortInfo_Mobile": {"type": "button", "desc": "手机快捷信息"},
+        "UIExpression_Com_ChatItem": {"type": "component", "desc": "聊天项"},
+        "UIExpression_Com_ExpressionItem": {"type": "component", "desc": "表情项"}
+      }
+    }
+  },
+
+  "battle_info_windows": {
+    "BattlePlayerInfoWindow": {
+      "ui_class": "UIBattlePlayerInfoWindow",
+      "scene": "Battle",
+      "purpose": "战斗中玩家详细信息",
+      "children": {
+        "UIBattlePlayerInfo_Button_Arrow": {"type": "button", "desc": "箭头切换"},
+        "UIBattlePlayerInfo_Button_BuffItem": {"type": "button", "desc": "Buff信息"},
+        "UIBattlePlayerInfo_Button_GameMode": {"type": "button", "desc": "游戏模式"},
+        "UIBattlePlayerInfo_Button_Relic": {"type": "button", "desc": "遗物"},
+        "UIBattlePlayerInfo_Button_RelicChat": {"type": "button", "desc": "遗物聊天"},
+        "UIBattlePlayerInfo_Com_BattleData": {"type": "component", "desc": "战斗数据"},
+        "UIBattlePlayerInfo_Com_HeroInfo": {"type": "component", "desc": "英雄信息"},
+        "UIBattlePlayerInfo_Com_Skill": {"type": "component", "desc": "技能信息"}
+      }
+    },
+    "BattleRelicInfoWindow": {
+      "ui_class": "UIBattleRelicInfoWindow",
+      "scene": "Battle",
+      "purpose": "战斗遗物信息",
+      "children": {
+        "UIBattleRelicInfo_Button_Arrow": {"type": "button", "desc": "箭头"},
+        "UIBattleRelicInfo_Button_Chat": {"type": "button", "desc": "聊天"},
+        "UIBattleRelicInfo_Button_PlayerTab": {"type": "button", "desc": "玩家标签"},
+        "UIBattleRelicInfo_Button_Relic": {"type": "button", "desc": "遗物详情"}
+      }
+    },
+    "BattleHintWindow": {
+      "ui_class": "UIBattleHintWindow",
+      "scene": "Battle",
+      "purpose": "战斗提示",
+      "children": {
+        "UIBattleHint_Com_DragonPalace": {"type": "component", "desc": "龙宫特殊提示"}
+      }
+    },
+    "BattlePreMonsterWindow": {
+      "ui_class": "UIBattlePreMonsterWindow",
+      "scene": "Battle",
+      "purpose": "怪物预览窗口"
+    }
+  },
+
+  "battle_settlement": {
+    "BattleSettlementPanel": {
+      "ui_class": "UIBattleSettlementPanel",
+      "scene": "Battle",
+      "purpose": "战斗结算面板",
+      "phase": "ended",
+      "children": {
+        "UIBattleSettlement_Button_Sure": {"type": "button", "title": "确定", "relative_pos": [0.50, 0.85]},
+        "UIBattleSettlement_Button_AchieveItem": {"type": "button", "desc": "成就项"},
+        "UIBattleSettlement_Button_OperatePlayer": {"type": "button", "desc": "操作玩家"},
+        "UIBattleSettlement_Button_Praise": {"type": "button", "desc": "点赞"},
+        "UIBattleSettlement_Button_Relic": {"type": "button", "desc": "遗物"},
+        "UIBattleSettlement_Com_Balance": {"type": "component", "desc": "结算"},
+        "UIBattleSettlement_Com_BattleData": {"type": "component", "desc": "战斗数据"},
+        "UIBattleSettlement_Com_BattleData_PVE": {"type": "component", "desc": "PVE战斗数据"},
+        "UIBattleSettlement_Com_BattleData_PVP": {"type": "component", "desc": "PVP战斗数据"},
+        "UIBattleSettlement_Com_Victory": {"type": "component", "desc": "胜利展示"},
+        "UIBattleSettlement_Com_ShowWiner": {"type": "component", "desc": "展示赢家"},
+        "UIBattleSettlement_Com_Reward": {"type": "component", "desc": "奖励"},
+        "UIBattleSettlement_Com_Camp": {"type": "component", "desc": "阵营"},
+        "UIBattleSettlement_Com_RelicData": {"type": "component", "desc": "遗物数据"},
+        "UIBattleSettlement_Com_Map": {"type": "component", "desc": "地图信息"}
+      }
+    },
+    "SinglePlayerSettlementPanel": {
+      "ui_class": "UISinglePlayerSettlementPanel",
+      "scene": "SinglePlayer",
+      "purpose": "单人模式结算面板",
+      "phase": "ended"
+    }
+  },
+
+  "battle_utility": {
+    "TipsWindow": {
+      "ui_class": "UITipsWindow",
+      "scene": "Battle",
+      "purpose": "通用提示窗口 (回合开始/升级/被动触发等)",
+      "always_visible": false,
+      "ignore_in_popup_scan": true,
+      "children": {
+        "UITips_Com_ChangeActionOrder": {"desc": "行动顺序变更"},
+        "UITips_Com_ChosenOne": {"desc": "被选中者"},
+        "UITips_Com_Common": {"desc": "通用提示"},
+        "UITips_Com_LandInfo": {"desc": "地块信息"},
+        "UITips_Com_LevelUp": {"desc": "升级提示"},
+        "UITips_Com_PassiveSkillTrigger": {"desc": "被动技能触发"},
+        "UITips_Com_PVETaskItem": {"desc": "PVE任务提示"},
+        "UITips_Com_RoundReward": {"desc": "回合奖励"},
+        "UITips_Com_Top": {"desc": "顶部提示"},
+        "UITips_Com_YourRoundStart": {"desc": "你的回合开始"}
+      }
+    },
+    "OperateTimeWindow": {
+      "ui_class": "UIOperateTimeWindow",
+      "scene": "Battle",
+      "purpose": "操作计时器",
+      "always_visible": true,
+      "ignore_in_popup_scan": true,
+      "children": {
+        "UIOperationTime_Progress": {"type": "component", "desc": "时间进度条"}
+      }
+    },
+    "MessageBoxWindow": {
+      "ui_class": "UIMessageBoxWindow",
+      "scene": "any",
+      "purpose": "通用消息框 (确认/取消)",
+      "phase": "message_box",
+      "children": {
+        "UIMessageBox_Button_DoubleStatus": {"type": "button", "desc": "双按钮状态"}
+      }
+    },
+    "RewardWindow": {
+      "ui_class": "UIRewardWindow",
+      "scene": "any",
+      "purpose": "奖励展示窗口",
+      "phase": "reward",
+      "children": {
+        "UIReward_Com_ExpiredTransform": {"type": "component", "desc": "过期转化"},
+        "UIReward_PropItem": {"type": "component", "desc": "道具项"},
+        "UIReward_Com_MonthCard": {"type": "component", "desc": "月卡"}
+      }
+    },
+    "LoadingWindow": {
+      "ui_class": "UILoadingWindow",
+      "scene": "any",
+      "purpose": "加载窗口",
+      "children": {
+        "UILoading_MagicSchool": {"type": "component", "desc": "魔法学院加载"},
+        "UILoading_SceneCut": {"type": "component", "desc": "场景切换"}
+      }
+    },
+    "SystemTipsWindow": {
+      "ui_class": "UISystemTipsWindow",
+      "scene": "any",
+      "purpose": "系统提示 (邀请/聊天信号)",
+      "ignore_in_popup_scan": true,
+      "children": {
+        "UISystemTips_Button_ChatSignal": {"type": "button", "desc": "聊天信号"},
+        "UISystemTips_Button_InviteSignal": {"type": "button", "desc": "邀请信号"},
+        "UISystemTips_Com_Zeotrope": {"type": "component", "desc": "走马灯"}
+      }
+    }
+  },
+
+  "singleplayer": {
+    "SinglePlayerPanel": {
+      "ui_class": "UISinglePlayerPanel",
+      "scene": "SinglePlayer",
+      "purpose": "单人模式主面板",
+      "children": {
+        "UISinglePlayer_Button_Move": {"type": "button", "desc": "移动按钮"},
+        "UISinglePlayer_Button_Refresh": {"type": "button", "desc": "刷新按钮"},
+        "UISinglePlayer_Button_UnLockLand": {"type": "button", "desc": "解锁地块"},
+        "UISinglePlayer_Com_BuildingLevel": {"type": "component", "desc": "建筑等级"},
+        "UISinglePlayer_Com_BuildingInfo": {"type": "component", "desc": "建筑信息"},
+        "UISinglePlayer_Com_DiceInfo": {"type": "component", "desc": "骰子信息"},
+        "UISinglePlayer_Com_Point": {"type": "component", "desc": "点数信息"},
+        "UISinglePlayer_Com_RelicInfo": {"type": "component", "desc": "遗物信息"},
+        "UISinglePlayer_Com_CardItemSlot": {"type": "component", "desc": "卡牌槽位"},
+        "UISinglePlayer_Com_RewardShow": {"type": "component", "desc": "奖励展示"},
+        "UISinglePlayer_Com_SettleMission": {"type": "component", "desc": "结算任务"}
+      }
+    },
+    "SinglePlayerStartPanel": {
+      "ui_class": "UISinglePlayerStartPanel",
+      "scene": "SinglePlayer",
+      "purpose": "单人模式开始面板",
+      "children": {
+        "UISinglePlayer_Button_Confirm": {"type": "button", "title": "确定"}
+      }
+    },
+    "SinglePlayerSettingInBattleWindow": {
+      "ui_class": "UISinglePlayerSettingInBattleWindow",
+      "scene": "SinglePlayer",
+      "purpose": "单人模式战斗内设置"
+    }
+  },
+
+  "social": {
+    "FriendPanel": {
+      "ui_class": "UIFriendPanel",
+      "scene": "Home",
+      "purpose": "好友面板",
+      "children": {
+        "UIFriend_Button_Tab": {"type": "button", "desc": "标签切换"},
+        "UIFriend_Button_FriendLabel": {"type": "button", "desc": "好友标签"},
+        "UIFriend_Com_AddFriend": {"type": "component", "desc": "添加好友"},
+        "UIFriend_Com_FriendList": {"type": "component", "desc": "好友列表"},
+        "UIFriend_Com_FriendItem": {"type": "component", "desc": "好友项"},
+        "UIFriend_Com_ApplyFriend": {"type": "component", "desc": "好友申请"},
+        "UIFriend_Com_BlackList": {"type": "component", "desc": "黑名单"}
+      }
+    },
+    "ChatWindow": {
+      "ui_class": "UIChatWindow",
+      "scene": "Home",
+      "purpose": "聊天窗口",
+      "children": {
+        "UIChat_Button_Session": {"type": "button", "desc": "会话按钮"},
+        "UIChat_Com": {"type": "component", "desc": "聊天内容"},
+        "UIChat_Com_Left": {"type": "component", "desc": "左侧消息"},
+        "UIChat_Com_Right": {"type": "component", "desc": "右侧消息"},
+        "UIChat_Com_Name": {"type": "component", "desc": "名字"}
+      }
+    },
+    "InviteWindow": {
+      "ui_class": "UIInviteWindow",
+      "scene": "Home",
+      "purpose": "邀请好友窗口",
+      "children": {
+        "UIInviteFriend_Button_Grip": {"type": "button", "desc": "滑块"},
+        "UIInviteFriend_Button_PlayerItem": {"type": "button", "desc": "玩家项"},
+        "UIInviteFriend_Com_InviteInfo": {"type": "component", "desc": "邀请信息"}
+      }
+    },
+    "FriendLeaderboardWindow": {
+      "ui_class": "UIFriendLeaderboardWindow",
+      "scene": "Home",
+      "purpose": "好友排行榜"
+    }
+  },
+
+  "character": {
+    "HeroPanel": {
+      "ui_class": "UIHeroPanel",
+      "scene": "Home",
+      "purpose": "英雄/角色面板 - 查看和升级角色",
+      "children": {
+        "UIHero_Button_Hero": {"type": "button", "desc": "英雄选择"},
+        "UIHero_Button_SkinItem": {"type": "button", "desc": "皮肤选择"},
+        "UIHero_Button_BreakThrough": {"type": "button", "desc": "突破"},
+        "UIHero_Button_FileSelect": {"type": "button", "desc": "档案选择"},
+        "UIHero_Button_GiftItem": {"type": "button", "desc": "赠送礼物"},
+        "UIHero_Button_GiftWay": {"type": "button", "desc": "礼物方式"},
+        "UIHero_Button_SwitchMode": {"type": "button", "desc": "切换模式"},
+        "UIHero_Button_UpgradeOperate": {"type": "button", "desc": "升级操作"},
+        "UIHero_Com_Skill": {"type": "component", "desc": "技能信息"},
+        "UIHero_Com_Skin": {"type": "component", "desc": "皮肤信息"},
+        "UIHero_Com_Level": {"type": "component", "desc": "等级信息"},
+        "UIHero_Com_File": {"type": "component", "desc": "档案"},
+        "UIHero_Com_Gift": {"type": "component", "desc": "礼物"},
+        "UIHero_Com_BreakThrough": {"type": "component", "desc": "突破信息"},
+        "UIHero_Com_TalentItem": {"type": "component", "desc": "天赋项"},
+        "UIHero_Com_Relation": {"type": "component", "desc": "关系"}
+      }
+    },
+    "FashionPanel": {
+      "ui_class": "UIFashionPanel",
+      "scene": "Home",
+      "purpose": "时装面板",
+      "children": {
+        "UIFashion_Button_Change": {"type": "button", "desc": "更换时装"},
+        "UIFashion_Button_PropItem": {"type": "button", "desc": "道具项"},
+        "UIFashion_Button_Video": {"type": "button", "desc": "视频预览"}
+      }
+    },
+    "AccountInfoWindow": {
+      "ui_class": "UIAccountInfoWindow",
+      "scene": "Home",
+      "purpose": "账号信息窗口",
+      "children": {
+        "UIAccountInfo_Button_Grip": {"type": "button", "desc": "滑块"},
+        "UIAccountInfo_Button_Hero": {"type": "button", "desc": "英雄信息"},
+        "UIAccountInfo_Button_RankInfo": {"type": "button", "desc": "排位信息"},
+        "UIAccountInfo_Button_SelectAchieve": {"type": "button", "desc": "选择成就"},
+        "UIAccountInfo_Button_ShowAchieve": {"type": "button", "desc": "展示成就"},
+        "UIAccountInfo_Button_Toggle": {"type": "button", "desc": "切换"},
+        "UIAccountInfo_Com_FightInfo": {"type": "component", "desc": "战斗信息"},
+        "UIAccountInfo_Com_Hero": {"type": "component", "desc": "英雄"},
+        "UIAccountInfo_Com_Main": {"type": "component", "desc": "主信息"},
+        "UIAccountInfo_Com_Rank": {"type": "component", "desc": "排位"},
+        "UIAccountInfo_Com_Skin": {"type": "component", "desc": "皮肤"}
+      }
+    }
+  },
+
+  "shop_and_gacha": {
+    "GachaPanel": {
+      "ui_class": "UIGachaPanel",
+      "scene": "Home",
+      "purpose": "抽卡面板",
+      "children": {
+        "UICacha_Button_Gacha": {"type": "button", "desc": "抽卡"},
+        "UICacha_Button_Gacha2": {"type": "button", "desc": "十连抽"},
+        "UICacha_Button_Pool": {"type": "button", "desc": "卡池"},
+        "UICacha_Button_RookieGacha": {"type": "button", "desc": "新手抽卡"},
+        "UICacha_Button_RookieReward": {"type": "button", "desc": "新手奖励"},
+        "UIGacha_Button_ResultItem": {"type": "button", "desc": "结果项"},
+        "UIGacha_Button_TabSelect": {"type": "button", "desc": "标签选择"},
+        "UIGacha_Com_Result": {"type": "component", "desc": "抽卡结果"},
+        "UIGacha_Skin": {"type": "component", "desc": "皮肤展示"}
+      }
+    },
+    "StorePanel": {
+      "ui_class": "UIStorePanel",
+      "scene": "Home",
+      "purpose": "商店面板",
+      "children": {
+        "UIStore_Button_Purchase7DayGift": {"type": "button", "desc": "7日礼包"},
+        "UIStore_Button_PurchaseMonthCard": {"type": "button", "desc": "月卡"},
+        "UIStore_Button_Recommend": {"type": "button", "desc": "推荐"},
+        "UIStore_Button_SkinTab": {"type": "button", "desc": "皮肤标签"},
+        "UIStore_Button_Way": {"type": "button", "desc": "获取途径"},
+        "UIStore_Com_Recharge": {"type": "component", "desc": "充值"},
+        "UIStore_Com_Exchange": {"type": "component", "desc": "兑换"},
+        "UIStore_Com_Skin": {"type": "component", "desc": "皮肤"},
+        "UIStore_Com_GiftPackage": {"type": "component", "desc": "礼包"}
+      }
+    },
+    "ShoppingPanel": {
+      "ui_class": "UIShoppingPanel",
+      "scene": "Home",
+      "purpose": "购物面板",
+      "children": {
+        "UIShopping_Button_Gacha": {"type": "button", "desc": "抽卡入口"},
+        "UIShopping_Button_Mall": {"type": "button", "desc": "商城入口"},
+        "UIShopping_Com_Main": {"type": "component", "desc": "主内容"}
+      }
+    },
+    "PurchaseWindow": {
+      "ui_class": "UIPurchaseWindow",
+      "scene": "Home",
+      "purpose": "购买确认窗口",
+      "children": {
+        "UIPurchase_Button_BattlePassLevel": {"type": "button", "desc": "战令等级购买"},
+        "UIPurchase_Com_ContentType": {"type": "component", "desc": "内容类型"}
+      }
+    },
+    "NGOStoreWindow": {
+      "ui_class": "UINGOStoreWindow",
+      "scene": "Battle",
+      "purpose": "PVE筹码商店",
+      "children": {
+        "UINGOStore_Button_Purchase": {"type": "button", "desc": "购买"},
+        "UINGOStore_Com_Goods": {"type": "component", "desc": "商品"},
+        "UINGOStore_Com_CharacterInfo": {"type": "component", "desc": "角色信息"}
+      }
+    },
+    "DiscountWindow": {
+      "ui_class": "UIDiscountWindow",
+      "purpose": "折扣窗口"
+    },
+    "ShowSkinWindow": {
+      "ui_class": "UIShowSkinWindow",
+      "purpose": "皮肤展示窗口",
+      "children": {
+        "UIShowSkin_Button_Purchase": {"type": "button", "desc": "购买"},
+        "UIShowSkin_Button_Video": {"type": "button", "desc": "视频"},
+        "UIShowSkin_Com_Story": {"type": "component", "desc": "故事"},
+        "UIShowSkin_Com_Skin": {"type": "component", "desc": "皮肤预览"}
+      }
+    },
+    "SkinSellWindow": {
+      "ui_class": "UISkinSellWindow",
+      "purpose": "皮肤销售窗口"
+    }
+  },
+
+  "tasks_and_activities": {
+    "TaskPanel": {
+      "ui_class": "UITaskPanel",
+      "scene": "Home",
+      "purpose": "任务面板",
+      "children": {
+        "UITask_Button_Tab": {"type": "button", "desc": "任务标签"},
+        "UITask_Button_TaskStatus": {"type": "button", "desc": "任务状态"},
+        "UITask_Button_Acquisition": {"type": "button", "desc": "领取"},
+        "UITask_Button_LivenessBox": {"type": "button", "desc": "活跃度宝箱"},
+        "UITask_Button_SevenDay": {"type": "button", "desc": "七日任务"},
+        "UITask_Button_GoWay": {"type": "button", "desc": "前往"},
+        "UITask_Com_AchieveLabel": {"type": "component", "desc": "成就标签"},
+        "UITask_Com_NoviceLabel": {"type": "component", "desc": "新手标签"},
+        "UITask_Com_WeekLabel": {"type": "component", "desc": "周任务标签"},
+        "UITask_Com_Seven": {"type": "component", "desc": "七日任务"},
+        "UITask_WeekTaskLiveness": {"type": "component", "desc": "周任务活跃度"}
+      }
+    },
+    "ActivityPanel": {
+      "ui_class": "UIActivityPanel",
+      "scene": "Home",
+      "purpose": "活动面板"
+    },
+    "ActivityHubPanel": {
+      "ui_class": "UIActivityHubPanel",
+      "scene": "Home",
+      "purpose": "活动中心"
+    },
+    "BattlePassPanel": {
+      "ui_class": "UIBattlePassPanel",
+      "scene": "Home",
+      "purpose": "战令面板",
+      "children": {
+        "UIBattlePass_Button_Buy": {"type": "button", "desc": "购买战令"},
+        "UIBattlePass_Button_Tab": {"type": "button", "desc": "标签"},
+        "UIBattlePass_Button_TaskStatus": {"type": "button", "desc": "任务状态"},
+        "UIBattlePass_Com_Reward": {"type": "component", "desc": "奖励"}
+      }
+    },
+    "MailPanel": {
+      "ui_class": "UIMailPanel",
+      "scene": "Home",
+      "purpose": "邮件面板",
+      "children": {
+        "UIMail_Button_Label": {"type": "button", "desc": "邮件标签"}
+      }
+    },
+    "BagPanel": {
+      "ui_class": "UIBagPanel",
+      "scene": "Home",
+      "purpose": "背包面板",
+      "children": {
+        "UIBag_Com_Item": {"type": "component", "desc": "物品"},
+        "UIBag_Com_Tab": {"type": "component", "desc": "标签"}
+      }
+    },
+    "SignInWindow": {
+      "ui_class": "UISignInWindow",
+      "scene": "Home",
+      "purpose": "签到窗口",
+      "children": {
+        "UISignIn_Button_SignIn": {"type": "button", "title": "签到"}
+      }
+    }
+  },
+
+  "settings": {
+    "SettingWindow": {
+      "ui_class": "UISettingWindow",
+      "scene": "Home",
+      "purpose": "设置窗口",
+      "children": {
+        "UISetting_Button_Operate": {"type": "button", "desc": "操作按钮"},
+        "UISetting_Com_Volume": {"type": "component", "desc": "音量设置"},
+        "UISetting_Com_Screen": {"type": "component", "desc": "屏幕设置"},
+        "UISetting_Com_Camera": {"type": "component", "desc": "镜头设置"},
+        "UISetting_Com_User": {"type": "component", "desc": "用户设置"},
+        "UISetting_Com_LiveMode": {"type": "component", "desc": "直播模式"},
+        "UISetting_Com_EnergySaving": {"type": "component", "desc": "节能模式"}
+      }
+    },
+    "SettingInBattleWindow": {
+      "ui_class": "UISettingInBattleWindow",
+      "scene": "Battle",
+      "purpose": "战斗内设置",
+      "children": {
+        "UISettingInBattle_Button_LockExpression": {"type": "button", "desc": "锁定表情"}
+      }
+    },
+    "SettingListWindow": {
+      "ui_class": "UISettingListWindow",
+      "scene": "Home",
+      "purpose": "设置列表",
+      "children": {
+        "UISettingList_Developer": {"type": "component", "desc": "开发者选项"}
+      }
+    }
+  },
+
+  "tutorial_and_guide": {
+    "TutorialWindow": {
+      "ui_class": "UITutorialWindow",
+      "scene": "any",
+      "purpose": "教程窗口",
+      "children": {
+        "UITutorial_Button_Sure": {"type": "button", "title": "确定"},
+        "UITutorial_Com_Arrow": {"type": "component", "desc": "箭头指引"},
+        "UITutorial_Com_Dialog": {"type": "component", "desc": "对话框"},
+        "UITutorial_Com_DialogTip": {"type": "component", "desc": "对话提示"},
+        "UITutorial_Com_Mash": {"type": "component", "desc": "遮罩"},
+        "UITutorial_Com_SelectHero": {"type": "component", "desc": "选择英雄"},
+        "UITutorial_Com_Tutorial": {"type": "component", "desc": "教程内容"}
+      }
+    },
+    "GuideWindow": {
+      "ui_class": "UIGuideWindow",
+      "scene": "any",
+      "purpose": "引导窗口",
+      "children": {
+        "UIGuide_Com_Arrow": {"type": "component", "desc": "箭头"},
+        "UIGuide_Com_Dialog": {"type": "component", "desc": "对话"},
+        "UIGuide_Com_Mash": {"type": "component", "desc": "遮罩"}
+      }
+    },
+    "SelectTutorialWindow": {
+      "ui_class": "UISelectTutorialWindow",
+      "purpose": "选择教程窗口"
+    },
+    "ExplainWindow": {
+      "ui_class": "UIExplainWindow",
+      "purpose": "说明窗口",
+      "children": {
+        "UIExplain_Com_PVE": {"type": "component", "desc": "PVE说明"},
+        "UIExplain_Com_PVP": {"type": "component", "desc": "PVP说明"}
+      }
+    },
+    "RuleWindow": {
+      "ui_class": "UIRuleWindow",
+      "purpose": "规则窗口"
+    },
+    "StoryWindow": {
+      "ui_class": "UIStoryWindow",
+      "purpose": "剧情窗口",
+      "children": {
+        "UIStory_Button_Skip": {"type": "button", "title": "跳过"},
+        "UIStory_Com_Dialog": {"type": "component", "desc": "对话"},
+        "UIStory_Com_Video": {"type": "component", "desc": "视频"}
+      }
+    }
+  },
+
+  "gm_debug": {
+    "GMWindow": {
+      "ui_class": "UIGMWindow",
+      "scene": "any",
+      "purpose": "GM工具面板 - 调试/作弊",
+      "children": {
+        "UIGM_Button_Operate": {"type": "button", "desc": "操作按钮"},
+        "UIGM_Button_Server": {"type": "button", "desc": "服务器按钮"},
+        "UIGM_Button_Single": {"type": "button", "desc": "单人按钮"},
+        "UIGM_Button_SingleContent": {"type": "button", "desc": "单人内容"},
+        "UIGM_Com_SetAttr": {"type": "component", "desc": "设置属性"},
+        "UIGM_Com_SetAttr_1": {"type": "component", "desc": "设置属性1"},
+        "UIGM_Com_SetContent": {"type": "component", "desc": "设置内容"},
+        "UIGM_Com_Set_Attr_Buff": {"type": "component", "desc": "设置Buff"},
+        "UIGM_Com_SinglePlayer": {"type": "component", "desc": "单人玩家设置"},
+        "UIGM_Com_Target": {"type": "component", "desc": "目标设置"},
+        "UIGM_Com_RandomSkin": {"type": "component", "desc": "随机皮肤"}
+      },
+      "related_rpc": ["CheatItemC2S", "GMPlayerSettingC2S"]
+    }
+  },
+
+  "collaboration": {
+    "VA11HallAWindow": {
+      "ui_class": "UIVA11HallAWindow",
+      "purpose": "VA-11 HALL-A联动窗口"
+    },
+    "WitchWeaponWindow": {
+      "ui_class": "UIWitchWeaponWindow",
+      "purpose": "魔女兵器联动窗口"
+    },
+    "Anniversary_2ndWindow": {
+      "ui_class": "UIAnniversary_2ndWindow",
+      "purpose": "二周年活动窗口"
+    }
+  },
+
+  "misc_windows": {
+    "GameInfoWindow": {
+      "ui_class": "UIGameInfoWindow",
+      "purpose": "游戏信息(延迟等)",
+      "children": {
+        "UIGameInfo_Ping": {"type": "component", "desc": "延迟显示"}
+      }
+    },
+    "GameLibraryWindow": {
+      "ui_class": "UIGameLibraryWindow",
+      "purpose": "游戏图鉴",
+      "children": {
+        "UIGameLibrary_Button_Card": {"type": "button", "desc": "卡牌图鉴"},
+        "UIGameLibrary_Button_RelicItem": {"type": "button", "desc": "遗物图鉴"},
+        "UIGameLibrary_Com_Monster": {"type": "component", "desc": "怪物图鉴"},
+        "UIGameLibrary_Com_Land": {"type": "component", "desc": "地块图鉴"},
+        "UIGameLibrary_Com_Difficulty": {"type": "component", "desc": "难度信息"}
+      }
+    },
+    "NoticeWindow": {
+      "ui_class": "UINoticeWindow",
+      "purpose": "公告窗口"
+    },
+    "InputWindow": {
+      "ui_class": "UIInputWindow",
+      "purpose": "输入窗口"
+    },
+    "InfoWindow": {
+      "ui_class": "UIInfoWindow",
+      "purpose": "信息窗口"
+    },
+    "PlayerRenameWindow": {
+      "ui_class": "UIPlayerRenameWindow",
+      "purpose": "改名窗口"
+    },
+    "PropDetailWindow": {
+      "ui_class": "UIPropDetailWindow",
+      "purpose": "道具详情窗口"
+    },
+    "RechargeTipWindow": {
+      "ui_class": "UIRechargeTipWindow",
+      "purpose": "充值提示窗口"
+    },
+    "WatchPanel": {
+      "ui_class": "UIWatchPanel",
+      "scene": "Battle",
+      "purpose": "观战面板"
+    },
+    "CampaignPanel": {
+      "ui_class": "UICampaignPanel",
+      "purpose": "战役面板"
+    },
+    "TrainingLevelPanel": {
+      "ui_class": "UITrainingLevelPanel",
+      "purpose": "训练关卡面板"
+    }
+  },
+
+  "common_components": {
+    "_note": "These are shared UI components used across multiple panels/windows",
+    "UICom_Card": {"desc": "卡牌组件"},
+    "UICom_CardBack": {"desc": "卡牌背面"},
+    "UICom_Card_Icon": {"desc": "卡牌图标"},
+    "UICom_Card_Name": {"desc": "卡牌名称"},
+    "UICom_HeroSkin": {"desc": "英雄皮肤"},
+    "UICom_Icon_Atk": {"desc": "攻击力图标"},
+    "UICom_Icon_Card": {"desc": "卡牌图标"},
+    "UICom_Icon_Counter": {"desc": "反击图标"},
+    "UICom_Icon_Def": {"desc": "防御力图标"},
+    "UICom_Icon_Gold": {"desc": "金币图标"},
+    "UICom_Icon_Hp": {"desc": "血量图标"},
+    "UICom_Icon_Mov": {"desc": "移动力图标"},
+    "UICom_PlayerInfo": {"desc": "玩家信息组件"},
+    "UICom_PlayerLabel": {"desc": "玩家标签"},
+    "UICom_BuffInfo": {"desc": "Buff信息"},
+    "UICom_SkillContent": {"desc": "技能内容"},
+    "UICom_AttrInfo": {"desc": "属性信息"},
+    "UICom_RelicKeyword": {"desc": "遗物关键字"},
+    "UICom_RelicQuality_Large": {"desc": "遗物品质(大)"},
+    "UICom_Item": {"desc": "物品组件"},
+    "UICom_GoodsItemName": {"desc": "商品名称"},
+    "UICom_GoodsQuality": {"desc": "商品品质"},
+    "UICom_Price": {"desc": "价格组件"},
+    "UICom_MapInfo": {"desc": "地图信息"},
+    "UICom_PopUpWindow_Bottom": {"desc": "弹窗底部"},
+    "UICom_PopUpWindow_MohuBg": {"desc": "弹窗模糊背景"},
+    "UICom_Expression": {"desc": "表情组件"},
+    "UICom_CharacterFile": {"desc": "角色档案"},
+    "UICom_PlayIcon": {"desc": "播放图标"},
+    "UICom_InvitePlayer": {"desc": "邀请玩家"},
+    "UICom_ModifyCounter": {"desc": "修改计数器"},
+    "UICom_CostPoint": {"desc": "费用点数"},
+    "UICom_SelectTips": {"desc": "选择提示"},
+    "UICom_SuggestMove": {"desc": "建议移动"},
+    "UICom_NGOCounter": {"desc": "PVE筹码计数器"},
+    "UICom_BossTips": {"desc": "Boss提示"},
+    "UICom_Point": {"desc": "点数组件"},
+    "UICom_PlayerLevel": {"desc": "玩家等级"}
+  },
+
+  "common_buttons": {
+    "_note": "These are shared button types used across multiple panels/windows",
+    "UIButton_Way": {"desc": "方向选择按钮 (战斗中路线选择)"},
+    "UIButton_MoveArrow": {"desc": "移动箭头按钮 (战斗中方向选择)"},
+    "UIButton_Next": {"desc": "下一步按钮"},
+    "UIButton_Next2": {"desc": "下一步按钮2"},
+    "UIButton_Buff": {"desc": "Buff按钮"},
+    "UIButton_Collect": {"desc": "收藏按钮"},
+    "UIButton_Grip": {"desc": "滑块按钮"},
+    "UIButton_MapEventSelect": {"desc": "地图事件选择"},
+    "UIButton_MapInfoSelect": {"desc": "地图信息选择"},
+    "UIButton_RoomMapCard": {"desc": "房间地图卡牌"},
+    "UIButton_SwitchTab": {"desc": "切换标签"},
+    "UIButton_SwitchTabChild": {"desc": "切换标签子项"},
+    "UIButton_GoodsItem": {"desc": "商品项"},
+    "UIButton_GoodsItem_Store": {"desc": "商店商品项"},
+    "UIButton_MonsterItem": {"desc": "怪物项"}
+  },
+
+  "phase_to_window_mapping": {
+    "_note": "Quick lookup: game phase -> relevant UI window/panel class names (used by AutoBattle)",
+    "combat": ["FightWindow", "UIFightWindow"],
+    "shop": ["LandShopWindow", "UILandShopWindow"],
+    "lottery": ["LandLotteryWindow", "UILandLotteryWindow"],
+    "upgrade": ["UpgradeWindow", "UIUpgradeWindow"],
+    "card_select": ["CardWindow", "UICardWindow"],
+    "gamble": ["LandGambleWindow", "UILandGambleWindow"],
+    "divination": ["LandDivinationWindow", "UILandDivinationWindow"],
+    "hospital": ["LandHospitalWindow", "UILandHospitalWindow"],
+    "land_event": ["LandEventWindow", "UILandEventWindow"],
+    "pursuit": ["LandPursuitWindow", "UILandPursuitWindow"],
+    "battery": ["LandBatteryWindow", "UILandBatteryWindow"],
+    "roll_gold": ["LandRollGoldWindow", "UILandRollGoldWindow"],
+    "vendor": ["LandVendorWindow", "UILandVendorWindow"],
+    "filling_station": ["LandFillingStationWindow", "UILandFillingStationWindow"],
+    "relic": ["LandRelicWindow", "UILandRelicWindow"],
+    "select_monster": ["BattleSelectMonsterWindow", "UIBattleSelectMonsterWindow"],
+    "lose_card": ["LoseCardWindow", "UILoseCardWindow"],
+    "box_prop": ["BoxPropWindow", "UIBoxPropWindow"],
+    "reward": ["RewardWindow", "UIRewardWindow"],
+    "message_box": ["MessageBoxWindow", "UIMessageBoxWindow"],
+    "skill_target": ["SkillWindow", "UISkillWindow"],
+    "ended": ["BattleSettlementPanel", "UIBattleSettlementPanel", "SinglePlayerSettlementPanel", "UISinglePlayerSettlementPanel"],
+    "atm": ["ATMWindow", "UIATMWindow"],
+    "assist_vote": ["AssistVoteWindow", "UIAssistVoteWindow"],
+    "pray": ["LandPrayWindow", "UILandPrayWindow"],
+    "direction_choice": ["UIButton_Way", "UIButton_MoveArrow"]
+  },
+
+  "ignore_in_popup_scan": [
+    "UIBattleInfoPanel",
+    "UIHandCardPanel",
+    "TipsWindow",
+    "OperateTimeWindow",
+    "GGraph",
+    "UIBackgroundPanel",
+    "UIBottomMenuPanel",
+    "SystemTipsWindow",
+    "LoadingWindow",
+    "LoadingTipWindow"
+  ],
+
+  "ui_manager": {
+    "UIManager": {"ns": "UI", "desc": "UI管理器 - 管理所有面板和窗口的显示/隐藏"},
+    "UIHelper": {"ns": "UI", "desc": "UI辅助工具类"},
+    "UISignal": {"ns": "UI", "desc": "UI信号系统"},
+    "CommonUIManager": {"ns": "UI", "desc": "通用UI管理器"},
+    "UIPanelStatusType": {"ns": "UI", "desc": "面板状态类型枚举"},
+    "UIStringType": {"ns": "UI", "desc": "UI字符串类型枚举"}
+  },
+
+  "screen_coordinates": {
+    "_note": "Relative screen coordinates (0.0-1.0) for PostMessage clicking, based on 16:9 layout",
+    "lobby": {
+      "start_game": [0.50, 0.55],
+      "back_button": [0.05, 0.06]
+    },
+    "match_entrance": {
+      "pvp_match": [0.35, 0.45],
+      "pve_coop": [0.15, 0.45],
+      "custom_room": [0.50, 0.35],
+      "create_room": [0.50, 0.85]
+    },
+    "room": {
+      "ready_start": [0.85, 0.90],
+      "confirm_hero": [0.50, 0.90],
+      "hero_grid_origin": [0.25, 0.35],
+      "hero_grid_spacing": [0.12, 0.15]
+    },
+    "battle": {
+      "dice_button": [0.89, 0.88],
+      "skill_button": [0.80, 0.84],
+      "defend_button": [0.40, 0.55],
+      "evade_button": [0.60, 0.55],
+      "confirm_button": [0.50, 0.58],
+      "skip_button": [0.80, 0.84],
+      "card_area_start": 0.30,
+      "card_area_end": 0.70,
+      "card_area_y": 0.82,
+      "center": [0.50, 0.45]
+    },
+    "settlement": {
+      "continue": [0.50, 0.85]
+    }
+  }
+}

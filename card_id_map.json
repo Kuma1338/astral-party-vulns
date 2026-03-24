@@ -1,0 +1,503 @@
+{
+  "_meta": {
+    "description": "卡牌ID到名称/效果的映射表，用于策略系统",
+    "sources": [
+      "game_classes.json反编译",
+      "wiki数据",
+      "对局中实时发现"
+    ],
+    "last_updated": "2026-03-23",
+    "note": "confirmed=从代码确认, inferred=推断, discovered=对局中发现"
+  },
+  "battle_cards": {
+    "10001": {
+      "name": "攻击(中)",
+      "name_en": "ATK UP (M)",
+      "type": "attack",
+      "cost": 1,
+      "effect": "ATK +1~3",
+      "status": "confirmed"
+    },
+    "10002": {
+      "name": "攻击(大)",
+      "name_en": "ATK UP (L)",
+      "type": "attack",
+      "cost": 2,
+      "effect": "ATK +1~6",
+      "status": "confirmed"
+    },
+    "10003": {
+      "name": "攻击(特)",
+      "name_en": "ATK UP (G)",
+      "type": "attack",
+      "cost": 3,
+      "effect": "ATK +1~10",
+      "status": "confirmed"
+    },
+    "10004": {
+      "name": "防御(中)",
+      "name_en": "DEF UP (M)",
+      "type": "defense",
+      "cost": 1,
+      "effect": "DEF +1~3",
+      "status": "confirmed"
+    },
+    "10005": {
+      "name": "防御(大)",
+      "name_en": "DEF UP (L)",
+      "type": "defense",
+      "cost": 2,
+      "effect": "DEF +1~6",
+      "status": "confirmed"
+    },
+    "10006": {
+      "name": "防御(特)",
+      "name_en": "DEF UP (G)",
+      "type": "defense",
+      "cost": 3,
+      "effect": "DEF +1~10",
+      "status": "confirmed"
+    },
+    "10007": {
+      "name": "暗影攻击",
+      "name_en": "Shadow Attack",
+      "type": "attack",
+      "cost": 2,
+      "effect": "ATK +3, 免疫反击",
+      "status": "inferred"
+    },
+    "10008": {
+      "name": "嘎呜斩",
+      "name_en": "Gawu Cut",
+      "type": "attack",
+      "cost": 4,
+      "effect": "ATK +1~20",
+      "status": "inferred"
+    },
+    "10009": {
+      "name": "蓄力",
+      "name_en": "Charge",
+      "type": "attack",
+      "cost": 4,
+      "effect": "ATK +5, 获得强力攻击",
+      "status": "inferred"
+    },
+    "10010": {
+      "name": "强力攻击",
+      "name_en": "Powerful Attack",
+      "type": "attack",
+      "cost": 3,
+      "effect": "ATK +6, 最终ATK +50%",
+      "status": "inferred"
+    },
+    "10011": {
+      "name": "毒牙",
+      "name_en": "Poison Fang",
+      "type": "attack",
+      "cost": 2,
+      "effect": "移除2层金鳞, 无法反击",
+      "status": "inferred"
+    },
+    "10012": {
+      "name": "撕咬",
+      "name_en": "Bite",
+      "type": "attack",
+      "cost": 2,
+      "effect": "获得觉醒层数, ATK提升",
+      "status": "inferred"
+    },
+    "10013": {
+      "name": "龙吟",
+      "name_en": "Dragon Roar",
+      "type": "attack",
+      "cost": 3,
+      "effect": "ATK +4, DEF -4, MOV -9",
+      "status": "inferred"
+    }
+  },
+  "effect_cards": {
+    "20001": {
+      "name": "过期便当",
+      "name_en": "Expired Bento",
+      "type": "damage",
+      "range": 6,
+      "damage": 2,
+      "effect": "对6格内目标造成2点伤害",
+      "status": "confirmed",
+      "seen_in_game": true
+    },
+    "20002": {
+      "name": "狂暴",
+      "name_en": "Berserk",
+      "type": "buff",
+      "range": 10,
+      "damage": 0,
+      "effect": "ATK+3, 受伤+1, 持续2回合",
+      "status": "inferred",
+      "seen_in_game": true
+    },
+    "20003": {
+      "name": "巧克力蛋糕",
+      "name_en": "Chocolate Cake",
+      "type": "heal",
+      "range": 0,
+      "damage": 0,
+      "effect": "回复2HP",
+      "status": "confirmed"
+    },
+    "20004": {
+      "name": "汉堡",
+      "name_en": "Hamburger",
+      "type": "heal",
+      "range": 0,
+      "damage": 0,
+      "effect": "回复4HP",
+      "status": "confirmed",
+      "seen_in_game": true
+    },
+    "20005": {
+      "name": "弹弓射击",
+      "name_en": "Slingshot",
+      "type": "damage",
+      "range": 10,
+      "damage": 2,
+      "effect": "对10格内目标造成2点伤害",
+      "status": "confirmed",
+      "seen_in_game": true
+    },
+    "20006": {
+      "name": "激光射线",
+      "name_en": "Laser Beam",
+      "type": "damage",
+      "range": 6,
+      "damage": 3,
+      "effect": "对6格内目标造成3点伤害",
+      "status": "confirmed"
+    },
+    "20007": {
+      "name": "砖头投掷",
+      "name_en": "Brick",
+      "type": "damage",
+      "range": 3,
+      "damage": 5,
+      "effect": "对3格内目标造成5点伤害",
+      "status": "confirmed",
+      "seen_in_game": true
+    },
+    "20008": {
+      "name": "盗取",
+      "name_en": "Snatch",
+      "type": "steal",
+      "range": 0,
+      "damage": 0,
+      "effect": "从目标获得5星币",
+      "status": "inferred",
+      "seen_in_game": true
+    },
+    "20009": {
+      "name": "掷骰大师",
+      "name_en": "Smart Dice",
+      "type": "utility",
+      "range": 0,
+      "damage": 0,
+      "effect": "下次移动自选1-6点数",
+      "status": "confirmed"
+    },
+    "20010": {
+      "name": "转向",
+      "name_en": "Redirection",
+      "type": "utility",
+      "range": 0,
+      "damage": 0,
+      "effect": "选择移动方向",
+      "status": "confirmed"
+    },
+    "20011": {
+      "name": "孤注一掷",
+      "name_en": "All or Nothing",
+      "type": "buff",
+      "range": 0,
+      "damage": 0,
+      "effect": "ATK+5, 对手无法闪避",
+      "status": "inferred"
+    },
+    "20012": {
+      "name": "岿然不动",
+      "name_en": "Immovable",
+      "type": "buff",
+      "range": 0,
+      "damage": 0,
+      "effect": "DEF+6, 持续2回合",
+      "status": "confirmed",
+      "seen_in_game": true
+    },
+    "20013": {
+      "name": "王之力",
+      "name_en": "King's Power",
+      "type": "buff",
+      "range": 0,
+      "damage": 0,
+      "effect": "HP-4, ATK+5, 持续3回合",
+      "status": "confirmed"
+    },
+    "20014": {
+      "name": "自爆",
+      "name_en": "Self-Explosion",
+      "type": "damage",
+      "range": 5,
+      "damage": 5,
+      "effect": "自身受3伤, 5格内全体受5伤",
+      "status": "confirmed"
+    },
+    "20015": {
+      "name": "以毒攻毒",
+      "name_en": "Fight Fire with Fire",
+      "type": "heal",
+      "range": 0,
+      "damage": 0,
+      "effect": "受2伤, 之后2回合每回合回3HP",
+      "status": "confirmed"
+    },
+    "20017": {
+      "name": "灵魂链接",
+      "name_en": "Soul Link",
+      "type": "debuff",
+      "range": 0,
+      "damage": 0,
+      "effect": "链接2人, 共享伤害3回合",
+      "status": "inferred"
+    },
+    "20018": {
+      "name": "陷阱",
+      "name_en": "Entrapment",
+      "type": "trap",
+      "range": 3,
+      "damage": 0,
+      "effect": "放置陷阱, 触发者失去5星币",
+      "status": "inferred"
+    },
+    "20019": {
+      "name": "拆除",
+      "name_en": "Demolition",
+      "type": "trap",
+      "range": 3,
+      "damage": 3,
+      "effect": "放置陷阱, 触发者受3伤",
+      "status": "inferred"
+    },
+    "20020": {
+      "name": "随机传送门",
+      "name_en": "Random Portal",
+      "type": "utility",
+      "range": 0,
+      "damage": 0,
+      "effect": "传送到随机传送门",
+      "status": "inferred"
+    },
+    "20021": {
+      "name": "传递炸弹",
+      "name_en": "Time Bomb",
+      "type": "damage",
+      "range": 0,
+      "damage": 99,
+      "effect": "炸弹传递, 骰1=99伤害",
+      "status": "inferred"
+    },
+    "20022": {
+      "name": "路障",
+      "name_en": "Barricade",
+      "type": "trap",
+      "range": 10,
+      "damage": 0,
+      "effect": "放置路障阻止移动",
+      "status": "inferred"
+    },
+    "20023": {
+      "name": "拾荒",
+      "name_en": "Scavenging",
+      "type": "utility",
+      "range": 3,
+      "damage": 0,
+      "effect": "收集3格内掉落星币",
+      "status": "inferred",
+      "seen_in_game": true
+    },
+    "20024": {
+      "name": "以牙还牙",
+      "name_en": "Eye for an Eye",
+      "type": "counter",
+      "range": 0,
+      "damage": 0,
+      "effect": "反弹效果卡",
+      "status": "inferred"
+    },
+    "20025": {
+      "name": "随机挑选",
+      "name_en": "Random Select",
+      "type": "counter",
+      "range": 0,
+      "damage": 0,
+      "effect": "效果卡转移给随机对手",
+      "status": "inferred"
+    },
+    "20026": {
+      "name": "保护屏障",
+      "name_en": "Barrier",
+      "type": "counter",
+      "range": 0,
+      "damage": 0,
+      "effect": "无效化效果卡",
+      "status": "inferred"
+    },
+    "20027": {
+      "name": "加急加快",
+      "name_en": "Hurry Hurry",
+      "type": "buff",
+      "range": 0,
+      "damage": 0,
+      "effect": "队友掷2骰子",
+      "status": "inferred"
+    },
+    "20028": {
+      "name": "你有我有",
+      "name_en": "What You Have I Have",
+      "type": "buff",
+      "range": 0,
+      "damage": 0,
+      "effect": "双方各+1卡",
+      "status": "inferred"
+    },
+    "20029": {
+      "name": "豪华盛宴",
+      "name_en": "Luxurious Feast",
+      "type": "heal",
+      "range": 3,
+      "damage": 0,
+      "effect": "3格内回3HP",
+      "status": "inferred"
+    },
+    "20030": {
+      "name": "援护",
+      "name_en": "Support",
+      "type": "utility",
+      "range": 0,
+      "damage": 0,
+      "effect": "传送到队友位置",
+      "status": "inferred"
+    },
+    "20031": {
+      "name": "集束爆破",
+      "name_en": "Blast",
+      "type": "damage",
+      "range": 6,
+      "damage": 4,
+      "effect": "6格内怪物4伤+范围4伤",
+      "status": "inferred"
+    },
+    "20032": {
+      "name": "电磁炮",
+      "name_en": "Railgun",
+      "type": "damage",
+      "range": 5,
+      "damage": 6,
+      "effect": "5格内怪物6伤",
+      "status": "inferred"
+    }
+  },
+  "special_cards": {
+    "21001": {
+      "name": "对怪激光",
+      "name_en": "Anti-Monster Laser",
+      "type": "pve_damage",
+      "damage": 3,
+      "status": "inferred"
+    },
+    "21002": {
+      "name": "对怪砖头",
+      "name_en": "Anti-Monster Brick",
+      "type": "pve_damage",
+      "damage": 5,
+      "status": "inferred"
+    },
+    "21003": {
+      "name": "命运指引",
+      "name_en": "Guidance of Fate",
+      "type": "character_special",
+      "status": "inferred"
+    },
+    "21004": {
+      "name": "符咒·厄",
+      "name_en": "Talisman - Misfortune",
+      "type": "character_special",
+      "status": "inferred"
+    },
+    "21005": {
+      "name": "符咒·福",
+      "name_en": "Talisman - Fortune",
+      "type": "character_special",
+      "status": "inferred"
+    },
+    "21006": {
+      "name": "活体书页",
+      "name_en": "Living Book",
+      "type": "character_special",
+      "status": "inferred"
+    },
+    "21007": {
+      "name": "能量棒",
+      "name_en": "Energy Bar",
+      "type": "map_special",
+      "map": "Ghost Alley",
+      "status": "inferred"
+    },
+    "21008": {
+      "name": "聪明软糖",
+      "name_en": "Smartie Gummy",
+      "type": "map_special",
+      "map": "Ghost Alley",
+      "status": "inferred"
+    },
+    "21009": {
+      "name": "辅助口香糖",
+      "name_en": "Support Gum",
+      "type": "map_special",
+      "map": "Ghost Alley",
+      "status": "inferred"
+    },
+    "21016": {
+      "name": "雪球攻击",
+      "name_en": "Snowball Attack",
+      "type": "map_special",
+      "map": "Gift Plaza",
+      "status": "inferred"
+    },
+    "21017": {
+      "name": "定向加速",
+      "name_en": "Directed Boost",
+      "type": "map_special",
+      "map": "Gift Plaza",
+      "status": "inferred"
+    }
+  },
+  "discovered_in_game": [
+    20001,
+    20002,
+    20004,
+    20005,
+    20006,
+    20007,
+    20008,
+    20010,
+    20012,
+    20013,
+    20014,
+    20018,
+    20020,
+    20021,
+    20022,
+    20023
+  ],
+  "total_known": 55,
+  "total_confirmed": 15,
+  "total_inferred": 40
+}
